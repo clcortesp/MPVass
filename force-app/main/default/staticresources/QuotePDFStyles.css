@@ -1,0 +1,69 @@
+.Section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.RowOf4 {
+    width: 700px;
+    font-size: 14px;
+    margin-top: 10px
+}
+
+.CellTitle {
+    width: 170px;
+    display: inline-block;
+}
+
+.CellData {
+    width: 170px;
+    display: inline-block;
+}
+
+.LongCellData {
+    width: 340px;
+    display: inline-block;
+}
+
+.SectionHeader {
+    background-color: rgb(118 118 118);
+    color: white;
+    margin-bottom: 0px;
+    padding: 6px 0px 6px 0px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
+.TableHeader {
+    background-color: rgb(118 118 118);
+    color: white;
+    padding: 6px 0px 6px 0px;
+    margin-bottom: 6px
+}
+
+.MPLogo {
+    margin-bottom: 50px
+}
+
+.theImage {
+    width: 300px;
+}
+
+.ScaleTable {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.column-width-15 {
+    width: 15%;
+}
+
+.ADTotalValue {
+    width: 100%;
+    font-size: 14px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}

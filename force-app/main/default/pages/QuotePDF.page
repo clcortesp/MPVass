@@ -1,0 +1,340 @@
+<!--
+  @description 
+  @group Proyecto MP
+  @author Marco Guevara
+-->
+<apex:page renderAs="PDF" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="QuotePDFController_cls">        
+    <html>
+        <head>
+            <apex:stylesheet value="{!$Resource.QuotePDFStyles}" />
+        </head>
+        <body>
+            <div class="MPLogo">
+                <apex:image id="theImage" value="{!$Resource.MallplazaLogo}" alt="Logo of Mallplaza" styleClass="theImage"/>
+            </div> 
+            <div class="Section">                            
+                <div class="RowOf4" >
+                    <div class="CellTitle">                        
+                            Presentando a
+                    </div>
+                    <div class="CellData">
+                            {!lstQuote[0].opportunity.MPBrand__r.name}
+                    </div>
+                    <div class="CellTitle">
+                            Presupuesto
+                    </div>
+                    <div class="CellData">
+                            {!lstQuote[0].name}
+                    </div>
+                </div>
+                <div class="RowOf4">
+                    <div class="CellTitle">
+                            Mall
+                    </div>
+                    <div class="CellData">
+                            {!lstQuote[0].opportunity.MPMall__r.name}
+                    </div>
+                    <div class="CellTitle">
+                            Plazo de contrato ({!lstQuote[0].opportunity.MPTermType__c})
+                    </div>
+                    <div class="CellData">
+                            {!lstQuote[0].opportunity.MPContractPeriodYears__c}
+                    </div>
+                </div>
+                <div class="RowOf4">
+                    <div class="CellTitle">
+                            Superficie en m2
+                    </div>
+                    <div class="CellData">
+                        <apex:outputText value="{0,number,#,##0.00}">
+                            <apex:param value="{!lstQuote[0].MPStore__r.MPFootage__c}" />
+                        </apex:outputText>
+                    </div>
+                    <div class="CellTitle">
+                            Garantía final
+                    </div>
+                    <div class="CellData">
+                        <apex:outputText value="{0,number,#,##0.00}">
+                            <apex:param value="{!dblValueGAR0}" />
+                        </apex:outputText>
+                        {!lstQuote[0].opportunity.CurrencyIsoCode}
+                    </div>
+                </div>
+                <div class="RowOf4">
+                    <div class="CellTitle">
+                            Fecha entrega local
+                    </div>
+                    <div class="CellData">
+                        <apex:outputText value="{0, date, dd/MM/yyyy}">
+                            <apex:param value="{!lstQuote[0].opportunity.MPContractStartDate__c}" /> 
+                        </apex:outputText>
+                    </div>
+                    <div class="CellTitle">
+                            Fecha probable de apertura
+                    </div>
+                    <div class="CellData">
+                        <apex:outputText value="{0, date, dd/MM/yyyy}">
+                            <apex:param value="{!lstQuote[0].opportunity.MPProbableOpeningDate__c}" /> 
+                        </apex:outputText>
+                    </div>
+                </div>
+                <div class="RowOf4">
+                    <div class="CellTitle">
+                            Validez de las cotizaciones
+                    </div>
+                    <div class="LongCellData">
+                            15 días a contar de la fecha de hoy :
+                            <apex:outputText value="{0, date, dd/MM/yyyy}">
+                                <apex:param value="{!TODAY()}" /> 
+                            </apex:outputText>
+                    </div>                            
+                </div>
+            </div>
+            <div class="Section"> 
+                <div>
+                    <h2 class="SectionHeader">
+                        Tarifa de arriendo mínimo (Valor acordado en PEN/m2)
+                    </h2>
+                </div>
+                <div>
+                    <apex:pageBlock >
+                        <apex:pageBlockTable value="{!lstAMTimeScale}" var="AMSc" styleClass="ScaleTable">
+                            <apex:column >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Valor acordado
+                                    </div>
+                                </apex:facet>
+                                <apex:outputText value="{0,number,#,##0.00}">
+                                    <apex:param value="{!AMSc.strValue}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Vigencia desde
+                                    </div>
+                                </apex:facet>                                
+                                <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!AMSc.strStartDate}" />   
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15">
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Vigencia hasta
+                                    </div>
+                                </apex:facet>                        
+                                <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!AMSc.strEndDate}" />                 
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15">
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Reajuste (%)
+                                    </div>
+                                </apex:facet>
+                                <apex:outputText value="{0,number,#,##0.00}">
+                                    <apex:param value="{!AMSc.strAdjustmentValue}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15">
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Reajuste (meses)
+                                    </div>
+                                </apex:facet>
+                                {!AMSc.strAdjustmentPeriod}                        
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </div>
+                <div class="ADTotalValue">
+                    <p>
+                        Condición: Se consideran
+                        <apex:outputText value="{0, number, ###}">
+                            <apex:param value="{!dblADTotalValue+12}"/>
+                        </apex:outputText>
+                        arriendos en el año.
+                    </p>            
+                    <p Style="{!strWithAM16}">
+                        Se considera un ajuste por concepto de inflación cada {!objAM16.MPNegotiatedAdjustment__r.MPPeriod__c} meses. Aplicable desde: 
+                        <apex:outputText value="{0, date, dd/MM/yyyy}">
+                            <apex:param value="{!dteAjusment}" /> 
+                        </apex:outputText>
+                    </p>
+                </div> 
+            </div>
+            <div class="Section">
+                <div>
+                    <h2 class="SectionHeader">
+                        Tarifa arriendo porcentual (Valor acordado en %)
+                    </h2>
+                </div>
+                <div>
+                    <apex:pageBlock >
+                        <apex:pageBlockTable value="{!lstAPTimeScale}" var="APSc" styleClass="ScaleTable">
+                            <apex:column styleClass="column-width-15" >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Valor acordado
+                                    </div>
+                                </apex:facet>
+                                <apex:outputText value="{0,number,#,##0.00}">
+                                    <apex:param value="{!APSc.strValue}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15" >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Volumen inicial
+                                    </div>
+                                </apex:facet>
+                                <apex:outputText value="{0,number,#,##0.00}">
+                                    <apex:param value="{!APSc.dblInitialVolume}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15" >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Volumen final
+                                    </div>
+                                </apex:facet>
+                                <apex:outputText value="{0,number,#,##0.00}">
+                                    <apex:param value="{!APSc.dblFinalVolume}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15" >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Vigencia desde
+                                    </div>
+                                </apex:facet>                        
+                                <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!APSc.strStartDate}" />
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column styleClass="column-width-15" >
+                                <apex:facet name="header" >
+                                    <div class="TableHeader">
+                                        Vigencia hasta
+                                    </div>
+                                </apex:facet>                        
+                                <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!APSc.strEndDate}" />
+                                </apex:outputText>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </div>
+                <div>
+                    <p class="font-size-14">
+                        El porcentaje sobre las ventas es fijo para todo el período del contrato. Se paga la diferencia entre el arriendo porcentual y el mínimo, si es que se produce, la venta debe ser reportada antes del día 5 del mes siguiente.
+                    </p>
+                </div>
+            </div>
+            <div class="Section">
+                <div>
+                    <h2 class="SectionHeader">                        
+                        Otras obligaciones derivadas del contrato
+                    </h2>
+                </div>
+                <div>
+                    <div class="RowOf4">
+                        <div class="CellTitle">
+                            Tarifa x m2
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblG0TotalMount}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>
+                        <div class="CellTitle">
+                            Cuota de incorporación
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblCITotalMount}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>
+                    </div>
+                    <div class="RowOf4">
+                        <div class="CellTitle">
+                            Revisión del Proyecto
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblValueO050}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>                        
+                    </div>
+                </div>                
+            </div>
+            <div class="Section">
+                <div>
+                    <h2 class="SectionHeader">                        
+                        Cuadro resumen costo mensual estimado (cifras netas en {!lstQuote[0].opportunity.CurrencyIsoCode})
+                    </h2>
+                </div>
+                <div>
+                    <div class="RowOf4">
+                        <div class="CellTitle">                            
+                            Valor arriendo mensual                            
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblMonthRentalValue}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>
+                        <div class="CellTitle">
+                            Otras Obligaciones
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblOtherCosts}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>
+                    </div>
+                    <div class="RowOf4">
+                        <div class="CellTitle">                            
+                            Valor fondo de promoción
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblPromotionFoundValue}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>
+                        <div class="CellTitle">
+                            Total mensual estimado
+                        </div>
+                        <div class="CellData">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!dblEstimatedMonthlyTotal}" />
+                            </apex:outputText>
+                            {!lstQuote[0].opportunity.CurrencyIsoCode}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-size-14">
+                        Los valores expresados no consideran IGV
+                    </p>
+                    <p class="font-size-14">
+                        Los conceptos de Energía, Agua, Gas u Otros servicios serán facturados directamente según consumo. 
+                    </p>
+                    <p class="font-size-14">                        
+                        Este documento en su versión borrador no establece compromiso ni responsabilidad legal o comercial de parte de Mallplaza
+                        con la empresa solicitante. Todos los valores corresponden a aproximaciones, pudiendo variar
+                    </p>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

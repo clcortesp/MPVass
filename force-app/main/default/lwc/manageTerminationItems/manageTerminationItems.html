@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Elementos de Ficha de Término" icon-name="action:new_note">
+        <lightning-button label="Guardar" slot="actions" onclick={handleSaveClick}></lightning-button>
+        <div class="component">
+            <div class="section">
+                <lightning-textarea name="RejectionReason" label="Razon de rechazo"
+                    placeholder="Indique los motivos del rechazo" onchange={handleChangeReason} value={rejectionReason}
+                    required></lightning-textarea>
+            </div>
+            <div class="slds-grid section">
+                <div class="slds-col sectionColumn1">
+                    <lightning-combobox name="category" label="Categoría" value={categoryValue}
+                        placeholder="Seleccione categoría" options={categoryOptions}
+                        onchange={handleChangeCategory}></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox name="subcategory" label="Subcategoría" value={subCategoryValue}
+                        placeholder="Seleccione Subcategoría" options={subCategoryOptions}
+                        onchange={handleChangeSubCategory}></lightning-combobox>
+                </div>
+            </div>
+            <div class="section">
+                <div if:true={loaded} class="slds-scrollable--x" style="height: 400px;">
+                    <lightning-datatable key-field="Id" data={lstTerminationRecords} columns={columns}
+                        onrowselection={handleRowSelection} selected-rows={lstRejectedRecords} show-row-number-column>
+                    </lightning-datatable>
+                </div>
+                <div class="exampleHolder" if:false={loaded}>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </div>
+        </div>
+        <p slot="footer">(V65) Card Footer</p>
+    </lightning-card>
+</template>

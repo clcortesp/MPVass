@@ -1,0 +1,743 @@
+<apex:page renderAs="PDF" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="TermsPDF_Ctrl">
+    <html>
+        <head>
+            <style type="text/css" media="print">
+                .Table {
+                width: 100%;
+                font-size: 14px;
+                padding: 5px;
+                }
+                
+                .Title {
+                text-decoration: underline;
+                }
+                
+                .Section {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 100%;
+                }
+                
+                .Cell {
+                display: inline-block;
+                font-size: 14px;
+                font-family: sans-serif;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: text-top;
+                }
+                
+                .MPLogo {
+                margin-bottom: 50px;
+                width:100%;
+                }
+                
+                .theImage {
+                width: 30%;
+                }
+                
+                .RowOf4 {
+                width: 100%;
+                font-size: 14px;
+                margin-top: 10px
+                }
+                
+                .RowOf4>.Cell {
+                width: 24%;
+                }
+                
+                .textAlignCenter {
+                text-align: center;
+                color: #434343;
+                font-family: sans-serif;
+                }
+                
+                .redTitle {
+                text-align: center;
+                background-color: #e7004c;
+                color: white;
+                font-weight: 900;
+                padding: 6px;
+                font-size: 20px;
+                font-family: sans-serif;
+                margin: 10px 0px 10px 0px;
+                }
+                
+                .greySubTitle {
+                text-align: center;
+                color: #999999;
+                font-weight: 900;
+                padding: 6px;
+                margin:0px;
+                font-size: 20px;
+                font-family: sans-serif;
+                border-bottom: 2px solid #999999;
+                }
+                
+                .greyTableTitle {
+                width: 100%;
+                font-size: 14px;
+                margin-top: 10px;
+                background-color: #d9d9d9 !important;
+                height: 40px;
+                border-bottom: 2px solid #e7004c;
+                }
+                
+                .greyTableTitle>.Cell {
+                width: 47%;
+                background-color: #d9d9d9 !important;
+                padding: 6px 0px 6px 6px;
+                color: #666666;
+                font-weight: 900;
+                }
+                
+                .greyTitle {
+                font-size: 14px;                    
+                background-color: #d9d9d9 !important;
+                border-bottom: 2px solid #e7004c;                    
+                font-family: sans-serif;
+                color: #666666;
+                font-weight: 900;
+                margin: 0px;
+                padding: 6px;
+                }
+                
+                
+                #LegalRepresentative,
+                #TableEspecialCondition,
+                #DebtToBeIssued,
+                #TotalIssuedDebt,
+                #Warranty,
+                #Totals {
+                border: 1px solid #b7b7b7;
+                padding: 0px;
+                margin: 10px 0px 10px 0px;                	
+                }
+                
+                #TotalIssuedDebt,
+                #Warranty {                	
+                page-break-after:always;
+                }
+                
+                #TableEspecialCondition>.title,
+                #DebtToBeIssued>.title,
+                #TotalIssuedDebt>.title,
+                #Warranty>.title,
+                #Totals>.title {
+                text-align: center;
+                background-color: #e7004c;
+                color: white;
+                font-weight: 900;
+                font-size: 20px;
+                font-family: sans-serif;
+                margin: 0px;
+                padding: 6px;
+                }
+                
+                #TableEspecialCondition>.HeaderRow,
+                #DebtToBeIssued>.HeaderRow {
+                padding: 5px;
+                margin: 0px 0px 0px 0px;
+                font-size: 14px;
+                border-bottom: 2px solid #e7004c;
+                color: #666666;
+                }
+                
+                #TableEspecialCondition>.Rows{
+                padding: 5px;
+                margin: 0px 0px 0px 0px;
+                font-size: 14px;
+                }
+                
+                #DebtToBeIssued>.subTotal,
+                #TotalIssuedDebt>.subTotal{
+                padding: 5px 5px 5px 5px;
+                margin: 0px;
+                font-size: 14px;
+                border-bottom: 2px solid #b7b7b7;
+                font-weight: bold;                	
+                width:100%;
+                }
+                
+                #Totals>.subTotal{
+                padding: 5px 5px 5px 5px;
+                margin: 0px;
+                font-size: 14px;                    
+                font-weight: bold;                	
+                width:100%;
+                }
+                
+                .Column1{
+                margin: 0px;
+                padding: 0px;                	
+                width:49%;
+                }
+                
+                .Column2{
+                margin: 0px;
+                padding: 0px;
+                text-align: right;                	
+                width:46%;
+                }  
+                
+                .columnsTable1 {                    
+                padding: 2px;
+                margin: 0px;
+                }
+                
+                .columnsTable2 {
+                text-align: right;
+                padding: 2px 20px 2px 2px;
+                margin: 0px;
+                }
+                
+                #DebtToBeIssued>.subTitle {
+                font-weight: bold;
+                font-size: 14px;
+                font-family: sans-serif;
+                padding: 5px;
+                margin: 0px;
+                }               
+                
+                #paymentMethod {
+                margin: 10px 0px;
+                }
+                
+                #paymentMethod>.Name {
+                background-color: #e7004c;
+                padding: 20px;
+                width: 25%;
+                border: 1px solid #e7004c;
+                margin: 0px;
+                color: #ffffff;
+                font-weight: bold;
+                }
+                
+                #paymentMethod>.Value {
+                padding: 20px;
+                width: 25%;
+                border: 1px solid #e7004c;
+                margin: 0px;
+                }                
+                .watermark{
+                background-image: url("{!URLFOR($Resource.Draft)}");
+                background-position: center;
+                }                
+                p{
+                text-align: justify;
+                text-justify: inter-word;
+                }
+                
+                .rowSignature{
+                    width:80%;
+                    margin:auto;
+                    padding:0px;
+                    text-align:center;
+                    font-family:sans-serif;
+                }
+                
+                .SignatureCell{
+                    width:46%;
+                    border:2px solid #e7004c;
+                    margin:0px 5px;
+                    border-radius:25px;
+                    font-size:10px;
+                }
+                
+                .SignatureSpace{
+                	width:100%;
+                	height:100px;
+                }
+                
+                .Signer{
+                    width:100%;
+                    background-color:#e7004c;
+                    color:white;
+                    padding:5px 0px;
+                }
+                
+                .signerCompany{
+                    width:100%;
+                    padding:5px 0px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="{!IF(blnIsDraft,'watermark','')}">
+                <div class="MPLogo">
+                    <apex:image id="theImage" value="{!$Resource.MallplazaLogo}" alt="Logo of Mallplaza" styleClass="theImage"/>
+                </div> 
+                <div>
+                    <div>                    
+                        <h3 class="textAlignCenter">
+                            FICHA DE LIQUIDACIÓN Y TÉRMINO DE CONTRATO 
+                        </h3>    
+                    </div>
+                    <div>
+                        <div class="redTitle">
+                            Información general
+                        </div>
+                        <div class="greySubTitle">
+                            Fecha de Resolución y/o Término del Contrato <apex:outputText value="{0, date, dd'/'MM'/'yyyy}"><apex:param value="{!lstOrder[0].MPExitDate__c}" /></apex:outputText>
+                        </div>
+                    </div>
+                    <div class="Section">   
+                        
+                        <div class="greyTableTitle">
+                            <div class="Cell">                        
+                                MALLPLAZA
+                            </div>
+                            <div class="Cell">
+                                CLIENTE
+                            </div>
+                        </div>                    
+                        <div class="RowOf4" >
+                            <div class="Cell">                        
+                                Jefe Comercial
+                            </div>
+                            <div class="Cell">
+                                {!lstOwner[0].name}
+                            </div>
+                            <div class="Cell">
+                                Marca
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.MPBrand__r.name}
+                            </div>
+                        </div>
+                        <div class="RowOf4" >
+                            <div class="Cell">                        
+                                Sub Gerente
+                            </div>
+                            <div class="Cell">
+                                {!lstOwner[0].manager.name}
+                            </div>
+                            <div class="Cell">
+                                Razón Social
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.account.name}
+                            </div>
+                        </div>
+                        <div class="RowOf4" >
+                            <div class="Cell">                        
+                                Gerente
+                            </div>
+                            <div class="Cell">
+                                {!lstOwner[0].manager.manager.name}
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.account.MPIdentificationType__c}
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.account.MPIdentificationNumber__c}
+                            </div>
+                        </div>
+                        <div class="RowOf4" >
+                            <div class="Cell">                        
+                                Número de contrato
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.MPExternalCode__c}
+                            </div>
+                            <div class="Cell">
+                                Dirección
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.account.billingStreet} {!lstOrder[0].Contract.account.billingCountry} {!lstOrder[0].Contract.account.billingCity} {!lstOrder[0].Contract.account.billingState}
+                            </div>
+                        </div>
+                        <div class="RowOf4" >
+                            <div class="Cell">                        
+                                Mall
+                            </div>
+                            <div class="Cell">
+                                {!lstOrder[0].Contract.MPMall__r.name}
+                            </div>
+                            <div class="Cell">
+                                Última facturación
+                            </div>
+                            <div class="Cell">                               
+                                <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!lstOrder[0].MPLastInvoiceDate__c}" />                 
+                                </apex:outputText> 
+                            </div>
+                        </div>
+                    </div>
+                    <div id="LegalRepresentative">
+                        <div class="greyTitle">
+                            Representantes legales del Socio Comercial    
+                        </div>
+                        <div class="tableSection">                                                        
+                            <apex:pageBlock >
+                                <apex:pageBlockTable value="{!lstContact}" var="Contact" styleClass="Table">                                
+                                    <apex:column >
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader">Nombre</div>
+                                        </apex:facet>
+                                        {!Contact.name}                                    
+                                    </apex:column>
+                                    <apex:column >
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader">Tipo de documento</div>
+                                        </apex:facet>
+                                        {!Contact.MPIdentificationType__c}                                    
+                                    </apex:column>
+                                    <apex:column >
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader">Número de identificación</div>
+                                        </apex:facet>
+                                        {!Contact.MPIdentificationNumber__c}                                    
+                                    </apex:column>
+                                </apex:pageBlockTable>
+                            </apex:pageBlock>
+                        </div>
+                    </div>
+                    <apex:outputPanel rendered="{!IF(lstOrder[0].MPExceptionApproval__c != 'Aprobado',true,false)}">
+                        <div id="TotalIssuedDebt">                         
+                            <div class="title">
+                                Deuda emitida total    
+                            </div>
+                            <div class="tableSection">
+                                <apex:pageBlock >
+                                    <apex:pageBlockTable value="{!lstTerminationRecordIssued}" var="TerminationRecord" styleClass="Table">                                
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    Nº documento
+                                                </div>
+                                            </apex:facet>
+                                            {!TerminationRecord.MPDocumentNumber__c}                                    
+                                        </apex:column>
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    Texto
+                                                </div>
+                                            </apex:facet>
+                                            {!TerminationRecord.MPDescription__c}                                    
+                                        </apex:column>
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    Referencia 
+                                                </div>
+                                            </apex:facet>
+                                            {!TerminationRecord.MPReferenceDocument__c}                                    
+                                        </apex:column>
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    Emisión 
+                                                </div>
+                                            </apex:facet>
+                                            <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                                <apex:param value="{!TerminationRecord.MPDocumentDate__c}" />                 
+                                            </apex:outputText>                                    
+                                        </apex:column>
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    Vencimiento 
+                                                </div>
+                                            </apex:facet>
+                                            <apex:outputText value="{0, date, dd'/'MM'/'yyyy}">
+                                                <apex:param value="{!TerminationRecord.MPDocumentDueDate__c}" />                 
+                                            </apex:outputText>                                    
+                                        </apex:column> 
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    {!lstOrder[0].Contract.CurrencyIsoCode} 
+                                                </div>
+                                            </apex:facet>
+                                            <apex:outputText value="{0,number,#,##0.00}">
+                                                <apex:param value="{!TerminationRecord.MPItemValue__c}" />
+                                            </apex:outputText>                                                
+                                        </apex:column>                                
+                                    </apex:pageBlockTable>
+                                </apex:pageBlock>
+                            </div>
+                            <div class="subTotal">
+                                <div class="Column1 Cell">
+                                    Subtotal deuda emitida
+                                </div>
+                                <div class="Column2 Cell">
+                                    {!dblSubTotalIssuedDebt}
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <div id="DebtToBeIssued">
+                        <div class="title">
+                            Deuda por emitir total
+                        </div>                    
+                        <div class="HeaderRow">
+                            <div class="Column1 Cell">
+                                Nombre del documento
+                            </div>
+                            <div class="Column2 Cell">
+                                PEN
+                            </div>
+                        </div>                    
+                        <div class="subTitle">                        
+                            2.1. Deuda operacional
+                        </div>
+                        <div class="tableSection">
+                            <apex:pageBlock >
+                                <apex:pageBlockTable value="{!lstTerminationRecordOperationalDebt}" var="TerminationRecord" styleClass="Table">                                
+                                    <apex:column styleClass="columnsTable1">
+                                        <apex:facet name="header"></apex:facet>
+                                        {!TerminationRecord.MPDescription__c}  
+                                        <apex:facet name="footer">                                            
+                                            <div class="columnsTable1">
+                                                Subtotal deuda operacional 
+                                            </div>
+                                        </apex:facet>
+                                    </apex:column>
+                                    <apex:column styleClass="columnsTable2">
+                                        <apex:facet name="header"></apex:facet>
+                                        <apex:outputText value="{0,number,#,##0.00}">
+                                            <apex:param value="{!TerminationRecord.MPItemValue__c}" />
+                                        </apex:outputText> 
+                                        <apex:facet name="footer">                                            
+                                            <div class="columnsTable2">
+                                                {!dblSubTotalOperationalDebt}
+                                            </div>                                            
+                                        </apex:facet>
+                                    </apex:column>                                
+                                </apex:pageBlockTable>
+                            </apex:pageBlock>                     
+                        </div>
+                        <div class="subTitle">                        
+                            2.2. Deuda comercial
+                        </div>
+                        <div class="tableSection">
+                            <apex:pageBlock >
+                                <apex:pageBlockTable value="{!lstTerminationRecordComercialDebt}" var="TerminationRecord" styleClass="Table">                                
+                                    <apex:column styleClass="columnsTable1">
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader"></div>
+                                        </apex:facet>
+                                        {!TerminationRecord.MPDescription__c}
+                                        <apex:facet name="footer">                                            
+                                            <div class="columnsTable1">
+                                                Subtotal deuda comercial 
+                                            </div>
+                                        </apex:facet>
+                                    </apex:column>
+                                    <apex:column styleClass="columnsTable2">
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader"></div>
+                                        </apex:facet>
+                                        <apex:outputText value="{0,number,#,##0.00}">
+                                            <apex:param value="{!TerminationRecord.MPItemValue__c}" />
+                                        </apex:outputText>
+                                        <apex:facet name="footer">                                            
+                                            <div class="columnsTable2">
+                                                {!dblSubTotalComercialDebt}
+                                            </div>
+                                        </apex:facet>
+                                    </apex:column>                                
+                                </apex:pageBlockTable>
+                            </apex:pageBlock>
+                        </div>
+                        <div class="subTitle">                        
+                            2.3. Ajuste por conceptos anticipados
+                        </div>
+                        <div>
+                            <apex:pageBlock >
+                                <apex:pageBlockTable value="{!lstTerminationRecordAnticipatedConceptsAdjustment}" var="TerminationRecord" styleClass="Table">                                
+                                    <apex:column styleClass="columnsTable1">
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader"></div>
+                                        </apex:facet>
+                                        {!TerminationRecord.MPDescription__c}
+                                        <apex:facet name="footer">                                            
+                                            <div class="columnsTable1">
+                                                Subtotal ajuste conceptos anticipados 
+                                            </div>
+                                        </apex:facet>
+                                    </apex:column>
+                                    <apex:column styleClass="columnsTable2">
+                                        <apex:facet name="header" >
+                                            <div class="TableHeader"></div>
+                                        </apex:facet>
+                                        <apex:outputText value="{0,number,#,##0.00}">
+                                            <apex:param value="{!TerminationRecord.MPItemValue__c}" />
+                                        </apex:outputText>
+                                        <apex:facet name="footer">                                            
+                                            <div class="columnsTable2">
+                                                {!dblSubTotalAnticipatedConceptsAdjustment} 
+                                            </div>
+                                        </apex:facet>
+                                    </apex:column>                                
+                                </apex:pageBlockTable>
+                            </apex:pageBlock>
+                        </div>
+                    </div>
+                    <div id="TableEspecialCondition">
+                        <apex:outputPanel rendered="{!lstOrder[0].MPSpecialConditionToApply__c}">
+                            <div class="title">                        
+                                Condición especial por aplicar
+                            </div>                                  
+                            <div class="HeaderRow" >
+                                <div class="Column1 Cell">
+                                    A favor de 
+                                </div>
+                                <div class="Column2 Cell">
+                                    {!lstOrder[0].Contract.CurrencyIsoCode}
+                                </div>
+                            </div>                    
+                            <div class="Rows">
+                                <div class="Column1 Cell">
+                                    {!lstOrder[0].MPSpecialConditionInFavorOf__c}
+                                </div>
+                                <div class="Column2 Cell">
+                                    {!IF(lstOrder[0].MPSpecialConditionInFavorOf__c=='Mallplaza','','-')} {!lstOrder[0].MPSpecialConditionAmount__c}
+                                </div>
+                            </div>
+                        </apex:outputPanel> 
+                    </div>
+                    <apex:outputPanel rendered="{!NOT(blnIsDraft)}">
+                        <div id="Warranty">
+                            <div class="title">                        
+                                Garantía
+                            </div> 
+                            <div class="tableSection">
+                                <apex:pageBlock >
+                                    <apex:pageBlockTable value="{!lstTerminationRecordWarranty}" var="TerminationRecord" styleClass="Table">                                
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">Resumen</div>
+                                            </apex:facet>
+                                            Garantía
+                                        </apex:column>
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">Uso de garantía</div>
+                                            </apex:facet>
+                                            {!lstOrder[0].MPWarrantyUse__c} 
+                                        </apex:column> 
+                                        <apex:column >
+                                            <apex:facet name="header" >
+                                                <div class="TableHeader">
+                                                    {!lstOrder[0].Contract.CurrencyIsoCode}
+                                                </div>
+                                            </apex:facet>
+                                            <apex:outputText value="{0,number,#,##0.00}">
+                                                <apex:param value="{!TerminationRecord.MPItemValue__c}" />
+                                            </apex:outputText>                                  
+                                        </apex:column>
+                                    </apex:pageBlockTable>
+                                </apex:pageBlock>
+                            </div>                                                                
+                        </div>
+                    </apex:outputPanel>
+                    <div id="Totals">
+                        <div class="title">
+                            Total ficha de término
+                        </div>
+                        <div class="subTotal">
+                            <div class="Column1 Cell">
+                                Deuda total final 
+                            </div>
+                            <div class="Column2 Cell">
+                                {!lstOrder[0].Contract.CurrencyIsoCode} {!dblTotalDebt}
+                            </div>
+                        </div>                    
+                    </div>
+                    <apex:outputPanel rendered="{!NOT(blnIsDraft)}">
+                        <div id="paymentMethod">                                        
+                            <div class="Name Cell">
+                                Modalidad de pago
+                            </div>
+                            <div class="Value Cell">
+                                {!lstOrder[0].MPPaymentMethod__c}
+                            </div>
+                        </div>
+                        <apex:outputPanel rendered="{!IF(lstOrder[0].MPPaymentMethod__c=='Documentada',true,false)}">
+                            <div id="paymentMethod">                                        
+                                <div class="Name Cell">
+                                    Número de pagarés
+                                </div>
+                                <div class="Value Cell">
+                                    {!lstOrder[0].MPNumberOfInstalments__c}                            
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                    <div>
+                        <p>
+                            <b class="Title">Cláusula 1:</b> Mediante la presente, el SOCIO COMERCIAL autoriza a MALLPLAZA a emitir las correspondientes facturas, notas de crédito y/o cualquier otro documento que dé cuenta de las obligaciones de pago que constan en la liquidación prevista, de la cual presta su total conformidad. 
+                        </p>
+                        <p>
+                            <b class="Title">Cláusula 2:</b> Por medio del presente instrumento, las Partes convienen por mutuo disenso dar por terminado el Contrato de Arrendamiento suscrito con fecha <apex:outputText value="{0, date, dd'/'MM'/'yyyy}"><apex:param value="{!lstOrder[0].MPContractStartDate__c}" /></apex:outputText> (el “Contrato) sobre el Local Comercial N° {!strLocalCode} ubicado en el Centro Comercial {!lstOrder[0].Contract.MPMall__r.name} [{!lstOrder[0].Contract.MPMall__r.MPExternalCode__c}] (el “Local Comercial”), quedando en consecuencia definitivamente concluidas todas las relaciones derivadas del Contrato y los derechos y obligaciones emanados del mismo desde la Fecha de Término del Contrato, señalada en la sección de información general del presente documento, quedando obligado el SOCIO COMERCIAL a cumplir con el pago de los montos adeudados de conformidad a la presente liquidación. 
+                        </p>
+                        <p>
+                            <b class="Title">Cláusula 3:</b> Por medio del presente, EL SOCIO COMERCIAL restituye el Local Comercial y se obliga a retirar la totalidad de los bienes del interior del mismo, a más tardar en la Fecha de Restitución del Local Comercial, indicada en la sección de información general del presente documento.
+                        </p>
+                        <p>
+                            Al respecto, en caso de que transcurrido dicha fecha el SOCIO COMERCIAL no haya retirado la totalidad de los bienes, por el presente acto EL SOCIO COMERCIAL mandata a MALLPLAZA a desecharlos como basura o -cuando su estado lo permita- a donarlos a instituciones de beneficencia. 
+                        </p>
+                        <p>
+                            Por este acto EL SOCIO COMERCIAL (Mandante) libera a MALLPLAZA (Mandatario) de la obligación de rendir cuentas de las acciones realizadas respecto de los bienes. Quedando de todas formas obligado el Mandatario a dar cumplimiento al mandato y a actuar con la debida diligencia y cuidado. Por último, EL SOCIO COMERCIL renuncia expresamente a interponer cualquier acción y/o reclamo que pudiera tener respecto de dichos bienes. 
+                        </p>
+                        <p>
+                            *Las instituciones de beneficencia a las que se realicen las donaciones serán previamente revisadas y autorizadas por MALLPLAZA. 
+                        </p>
+                        <p>
+                            En señal de conformidad, las Partes firman el presente documento.
+                        </p>
+                    </div>
+                    <apex:outputPanel rendered="{!NOT(blnIsDraft)}">
+                        <div>
+                            <div Class="rowSignature">
+                                <div class="SignatureCell Cell">
+                                    <div class="SignatureSpace"></div>
+                                    <div class="Signer">
+                                        {!lstContact[0].name}
+                                    </div>
+                                    <div class="signerCompany">
+                                        FIRMA DEL SOCIO COMERCIAL
+                                    </div>
+                                </div>
+                                <div class="SignatureCell Cell">
+                                    <div class="SignatureSpace"></div>
+                                    <div class="Signer">
+                                        {!lstOwner[0].manager.name}
+                                    </div>
+                                    <div class="signerCompany">
+                                        FIRMA MALLPLAZA
+                                    </div>
+                                </div>
+                            </div>
+                            <div Class="rowSignature">
+                                <apex:outputPanel rendered="{!IF(lstContact.size>1,true,false)}">
+                                    <div class="SignatureCell Cell">
+                                        <div class="SignatureSpace"></div>
+                                        <div class="Signer">
+                                            {!lstContact[1].name}
+                                        </div>
+                                        <div class="signerCompany">
+                                            FIRMA DEL SOCIO COMERCIAL
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>
+                                <div class="SignatureCell Cell">
+                                    <div class="SignatureSpace"></div>
+                                    <div class="Signer">
+                                        {!lstOwner[0].manager.manager.name}
+                                    </div>
+                                    <div class="signerCompany">
+                                        FIRMA MALLPLAZA
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+            </div>            
+        </body>
+    </html>
+</apex:page>
