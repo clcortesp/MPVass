@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>*</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
-    </types>
-    <version>62.0</version>
+	<types>
+		<members>Account.MPFacilitymanagement__c</members>
+		<members>MPDocument__c.MPFacilitymanagement__c</members>
+		<members>WorkOrder.MPFacilitymanagement__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>MPDocument__c</members>
+		<members>MPFacilitymanagement__c</members>
+		<members>Opportunity</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Gesti_n_de_Local_P_gina_de_registro</members>
+		<members>Registro_Deshabilitaci_n_de_locales_DDL</members>
+		<members>Registro_Habilitaci_n_de_Locales</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>MPFacilitymanagement__c-Facility Enablement %28HDL%29 Layout</members>
+		<members>MPFacilitymanagement__c-Formato Gestión de Local</members>
+		<members>MPFacilitymanagement__c-Premises Deactivation %28DDL%29 Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>MPFacilitymanagement__c.MPPremisesDeactivationDDL</members>
+		<members>MPFacilitymanagement__c.MPPremisesEnablementHDL</members>
+		<name>RecordType</name>
+	</types>
+	<version>60.0</version>
 </Package>
