@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPSpecialClauseText__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  ISPICKVAL(MPTypeOfClause__c, &apos;Bilateral sin penalidad&apos;),
+  &apos;Sin perjuicio del Plazo del Contrato señalado en la sección D. de los presentes Términos Específicos, las Partes podrán poner término anticipado al presente Contrato única y exclusivamente durante el mes &apos; &amp; TEXT(MPApplicationMonth__c) &amp; &apos; (&apos; &amp; MPApplicationMonthInWords__c &amp; &apos;) del plazo del Contrato; para lo cual, la Parte que desee resolver el Contrato deberá cumplir con enviar una comunicación vía notarial al domicilio de la otra Parte, señalado en la comparecencia, durante el mes &apos; &amp; TEXT(MPNoticeMonth__c) &amp; &apos; (&apos; &amp; MPNoticeMonthInWords__c &amp; &apos;) de la fecha de inicio del plazo de uso. La presente facultad de término anticipado se extingue si ninguna de las Partes la ejerce en la oportunidad señalada, debiendo éstas cumplir con todas las obligaciones que emanan del presente Contrato y sus anexos, hasta su fecha de vencimiento normal o prorrogada. Este supuesto no está sujeto al pago de penalidad alguna a favor de ninguna de las Partes, siempre que se cumpla con lo señalado en el párrafo anterior.&apos;,
+
+  IF(
+    ISPICKVAL(MPTypeOfClause__c, &apos;Bilateral con pago de penalidad&apos;),
+    &apos;Sin perjuicio del Plazo del Contrato señalado en la sección D. de los presentes Términos Específicos, las Partes podrán poner término anticipado al presente Contrato única y exclusivamente durante el mes &apos; &amp; TEXT(MPApplicationMonth__c) &amp; &apos; (&apos; &amp; MPApplicationMonthInWords__c &amp; &apos;) del plazo del Contrato; para lo cual, la Parte que desee resolver el Contrato deberá cumplir con enviar una comunicación vía notarial al domicilio de la otra Parte, señalado en la comparecencia, durante el mes &apos; &amp; TEXT(MPNoticeMonth__c) &amp; &apos; (&apos; &amp; MPNoticeMonthInWords__c &amp; &apos;) de la fecha de inicio del plazo de uso. La presente facultad de término anticipado se extingue si ninguna de las Partes la ejerce en la oportunidad señalada, debiendo éstas cumplir con todas las obligaciones que emanan del presente Contrato y sus anexos, hasta su fecha de vencimiento normal o prorrogada. Este supuesto está sujeto al pago de una penalidad equivalente a &apos; &amp; TEXT(MPPenaltiesCount__c) &amp; &apos; (&apos; &amp; MPPenaltyCountInWords__c &amp; &apos;) Renta/s Mensual/es del mes anterior a la fecha efectiva de la resolución contractual.&apos;,
+
+    IF(
+      ISPICKVAL(MPTypeOfClause__c, &apos;A favor de Mallplaza&apos;),
+      &apos;Sin perjuicio del Plazo del Contrato señalado en la sección D. de los presentes Términos Específicos, MALLPLAZA podrá poner término anticipado al presente Contrato a partir del mes &apos; &amp; TEXT(MPApplicationMonth__c) &amp; &apos; (&apos; &amp; MPApplicationMonthInWords__c &amp; &apos;) del plazo de contrato; para ello, MALLPLAZA deberá cumplir con enviar a EL CLIENTE una comunicación vía notarial con una anticipación no menor a &apos; &amp; TEXT(MPNoticeMonth__c) &amp; &apos; (&apos; &amp; MPNoticeMonthInWords__c &amp; &apos;) mes/es de la fecha de terminación que considere para la culminación del Contrato. Este supuesto no está sujeto al pago de penalidad alguna a favor de EL CLIENTE.&apos;,
+
+      IF(
+        ISPICKVAL(MPTypeOfClause__c, &apos;A favor del Socio comercial&apos;),
+        &apos;Sin perjuicio del Plazo del Contrato señalado en la sección D. de los presentes Términos Específicos, EL CLIENTE podrá poner término anticipado al presente Contrato a partir del mes &apos; &amp; TEXT(MPApplicationMonth__c) &amp; &apos; (&apos; &amp; MPApplicationMonthInWords__c &amp; &apos;) del plazo de contrato; para ello, EL CLIENTE deberá enviar a MALLPLAZA una comunicación vía notarial con una anticipación no menor a &apos; &amp; TEXT(MPNoticeMonth__c) &amp; &apos; (&apos; &amp; MPNoticeMonthInWords__c &amp; &apos;) mes/es de la fecha de terminación que considere para la culminación del Contrato. Este supuesto no está sujeto al pago de penalidad alguna a favor de MALLPLAZA.&apos;,
+        &apos;&apos;  
+      )
+    )
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Texto de clausula especial</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

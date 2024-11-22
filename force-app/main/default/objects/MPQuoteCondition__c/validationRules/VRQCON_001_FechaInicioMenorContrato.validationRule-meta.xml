@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRQCON_001_FechaInicioMenorContrato</fullName>
+    <active>true</active>
+    <description>Impide que la Fecha de Inicio sea menor a la fecha del contrato vinculado al presupuesto.</description>
+    <errorConditionFormula>MPStartDate__c  &lt;  MPQuote__r.Opportunity.MPContractStartDate__c</errorConditionFormula>
+    <errorDisplayField>MPStartDate__c</errorDisplayField>
+    <errorMessage>La Fecha de Inicio no puede ser inferior a la Fecha de Inicio del contrato. (VRQCON_001)</errorMessage>
+</ValidationRule>

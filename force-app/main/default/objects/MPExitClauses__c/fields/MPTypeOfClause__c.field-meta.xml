@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPTypeOfClause__c</fullName>
+    <externalId>false</externalId>
+    <label>Tipo de Cláusula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bilateral sin penalidad</fullName>
+                <default>false</default>
+                <label>Bilateral sin penalidad</label>
+            </value>
+            <value>
+                <fullName>Bilateral con pago de penalidad</fullName>
+                <default>false</default>
+                <label>Bilateral con pago de penalidad</label>
+            </value>
+            <value>
+                <fullName>A favor de Mallplaza</fullName>
+                <default>false</default>
+                <label>A favor de Mallplaza</label>
+            </value>
+            <value>
+                <fullName>A favor del Socio comercial</fullName>
+                <default>false</default>
+                <label>A favor del Socio comercial</label>
+            </value>
+            <value>
+                <fullName>A FAVOR ARRENDATARIO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A FAVOR ARRENDATARIO</label>
+            </value>
+            <value>
+                <fullName>A FAVOR MALLPLAZA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A FAVOR MALLPLAZA</label>
+            </value>
+            <value>
+                <fullName>BILATERAL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>BILATERAL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRSCL_001_StartDate</fullName>
+    <active>true</active>
+    <description>La Fecha de Inicio de la escala no puede ser menor a la Fecha de Inicio del Contrato (Opp)</description>
+    <errorConditionFormula>MPStartDate__c  &lt; MPQuoteCondition__r.MPQuote__r.Opportunity.MPContractStartDate__c</errorConditionFormula>
+    <errorDisplayField>MPStartDate__c</errorDisplayField>
+    <errorMessage>La Fecha de Inicio no puede ser menor a la Fecha del Contrato.(VRSCL_001)</errorMessage>
+</ValidationRule>

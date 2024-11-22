@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_011_MPTerminationClosingReason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(
+        OR(
+           $Profile.Name = &quot;System Administrator&quot;,
+           $Profile.Name = &quot;Administrador del sistema&quot;,
+            $UserRole.DeveloperName = &apos;Jefe_Area_Legal&apos;
+           )
+        ),
+    ISCHANGED(MPStage__c ),
+    RecordType.DeveloperName = &apos;MPTermination&apos;,
+    OR(
+       AND(
+           TEXT(PRIORVALUE( MPStage__c )) = &apos;Activación de Término&apos;,
+           ISPICKVAL( MPStage__c , &apos;Cerrado Perdido&apos; )
+           ),
+       AND(
+           ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Negociación&apos;),
+           ISPICKVAL( MPStage__c , &apos;Cerrado Perdido&apos; )
+           ),
+       AND(
+           ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Condición de Pago&apos;),
+           ISPICKVAL( MPStage__c , &apos;Cerrado Perdido&apos; )
+           ),
+       AND(
+           ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Proceso Judicial&apos;),
+           ISPICKVAL( MPStage__c , &apos;Cerrado Perdido&apos; )
+           )
+         ),
+       TEXT(  MPClosedLostReason__c  ) = &apos;&apos;
+     )</errorConditionFormula>
+    <errorMessage>Se debe completar el campo Motivo Cerrada/Perdida antes del cambio de Etapa. (VRO_011)</errorMessage>
+</ValidationRule>

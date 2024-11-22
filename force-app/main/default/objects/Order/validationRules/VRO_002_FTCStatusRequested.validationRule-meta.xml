@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_002_FTCStatusRequested</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+   NOT( ISNEW() ),
+   NOT (ISNULL(MPFTCPrincipal__c) ),
+   NOT(ISCHANGED( MPStage__c )),
+   NOT(ISCHANGED( MPClosedLostReason__c )),
+   ISPICKVAL(MPFTCPrincipal__r.MPStatus__c, &quot;Requested&quot;),
+   NOT(
+   OR(
+   $Profile.Name = &apos;System Administrator&apos;, 
+   $Profile.Name = &apos;Administrador del sistema&apos;,
+   $Profile.Name = &apos;Minimum Access - API Only Integrations&apos;
+     )
+   ),
+   NOT(ISCHANGED(MPFTCPrincipal__c))
+   )</errorConditionFormula>
+    <errorMessage>Esta Orden aún no está lista para continuar. Por favor, espere a que se reciban y procesen todos los datos necesarios. (VRO_002)</errorMessage>
+</ValidationRule>

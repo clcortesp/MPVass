@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPSuccessfulHttpCodes__c</fullName>
+    <description>Lista de códigos http que se deben tomar como éxito. Separe los códigos con punto y coma. Ejemplo: &apos;200;201&apos;</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Lista de códigos http que se deben tomar como éxito. Separe los códigos con punto y coma. Ejemplo: &apos;200;201&apos;</inlineHelpText>
+    <label>Códigos http exitosos</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

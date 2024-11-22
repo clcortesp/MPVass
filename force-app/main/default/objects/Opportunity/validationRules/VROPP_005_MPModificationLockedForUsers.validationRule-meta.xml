@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_005_MPModificationLockedForUsers</fullName>
+    <active>false</active>
+    <description>Los usuarios no deben poder modificar la oportunidad a la etapa Aprobación</description>
+    <errorConditionFormula>AND
+  (
+				ISCHANGED(StageName), 
+				ISPICKVAL(StageName, &quot;Aprobación&quot;),
+				$Profile.Name = &quot;Usuario Estándar Perú&quot;
+  )</errorConditionFormula>
+    <errorMessage>No se puede modificar a esta etapa manualmente.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRCONTR_002_MPContractDatesModification</fullName>
+    <active>true</active>
+    <description>Regla de validación que solo permite que el Jefe Comercial cuando el contrato se encuentra en estado Borrador, solo pueda editar dos campos de fecha.</description>
+    <errorConditionFormula>AND(
+    /* TRUE si es una modificacion*/
+    NOT(ISNEW()),
+
+    /* TRUE si alguna fecha cambia*/
+    OR(
+        ISCHANGED(MPRentalStartDate__c),
+        ISCHANGED(MPProbableOpeningDate__c)
+    ),
+    
+    /* TRUE si no es un admin*/
+    NOT(
+        OR(
+          $Profile.Name = &quot;System Administrator&quot;,
+          $Profile.Name = &quot;Administrador del sistema&quot;
+       )
+    ),
+
+    OR(
+       /* TRUE si el usuario no tiene el permiso*/
+       NOT($Permission.MPEditContractRentalAndOpenDatesInDraft),
+       /* TRUE si el estado no es Borrador */
+       NOT(ISPICKVAL(MPStatus__c, &apos;Borrador&apos;)),
+       /* TRUE si la integracion 4.0 no es exitosa o nula*/
+       ISBLANK(MPContractCreation40Status__c),
+       NOT(ISPICKVAL(MPContractCreation40Status__r.MPStatus__c, &apos;Success&apos;))
+    )
+)</errorConditionFormula>
+    <errorMessage>Solo se puede editar los campos &apos;Fecha inicio renta&apos; y &apos;Fecha de apertura&apos; cuando el contrato se encuentra en estado &apos;Borrador&apos; y la Integración 4.0 (Creación de contrato) es exitosa. (VRCONTR_002)</errorMessage>
+</ValidationRule>

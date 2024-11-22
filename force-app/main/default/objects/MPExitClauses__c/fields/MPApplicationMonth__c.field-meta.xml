@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPApplicationMonth__c</fullName>
+    <description>Indica el número de mes en particular donde se hará efectiva la salida o partir de qué mes podrá aplicar la cláusula de salida Mallplaza con previo aviso</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indica el número de mes en particular donde se hará efectiva la salida o partir de qué mes podrá aplicar la cláusula de salida Mallplaza con previo aviso</inlineHelpText>
+    <label>Mes de aplicación</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>MPMonths</valueSetName>
+    </valueSet>
+</CustomField>

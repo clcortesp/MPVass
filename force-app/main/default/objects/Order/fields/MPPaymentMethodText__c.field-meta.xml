@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPPaymentMethodText__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+     TEXT( MPPaymentMethod__c ),
+        &apos;Documentada&apos;, &apos;La deuda ya fue documentada&apos;, 
+        &apos;Transferencia_con_garantías&apos;, &apos;Cliente ya pagó&apos;,
+        &apos;Transferencia_sin_garantías&apos;, &apos;Cliente ya pagó&apos;,
+     null
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Texto forma de pago</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

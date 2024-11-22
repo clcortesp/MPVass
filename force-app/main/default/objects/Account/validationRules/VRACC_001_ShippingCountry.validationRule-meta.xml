@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRACC_001_ShippingCountry</fullName>
+    <active>true</active>
+    <description>Impide que el campo ShippingCountry quede vacío.</description>
+    <errorConditionFormula>AND(
+ISCHANGED( ShippingCountry  ),
+ISBLANK(ShippingCountry)
+)</errorConditionFormula>
+    <errorMessage>Por favor complete el campo País de facturación. (VRACC_001)</errorMessage>
+</ValidationRule>

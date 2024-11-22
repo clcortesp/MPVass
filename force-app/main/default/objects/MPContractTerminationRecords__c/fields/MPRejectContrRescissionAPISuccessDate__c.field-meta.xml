@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPRejectContrRescissionAPISuccessDate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+   ISPICKVAL(MPRejectContractRescission__r.MPStatus__c, &apos;Success&apos;)  
+   ,MPRejectContractRescission__r.MPResponseDateTime__c,
+   null
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Fecha de exito integración 4.9</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

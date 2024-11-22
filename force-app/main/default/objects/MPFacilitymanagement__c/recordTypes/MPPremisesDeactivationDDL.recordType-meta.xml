@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPPremisesDeactivationDDL</fullName>
+    <active>true</active>
+    <description>Registro que permite capturar el proceso de deshabilitación de un local comercial</description>
+    <label>Deshabilitación de locales (DDL)</label>
+</RecordType>

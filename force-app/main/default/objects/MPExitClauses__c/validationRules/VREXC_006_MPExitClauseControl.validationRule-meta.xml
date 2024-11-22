@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VREXC_006_MPExitClauseControl</fullName>
+    <active>true</active>
+    <errorConditionFormula>!($Profile.Name = &quot;System Administrator&quot;) &amp;&amp;
+!($Profile.Name = &quot;Administrador del sistema&quot;) &amp;&amp;
+
+ISCHANGED( OwnerId ) &amp;&amp;
+
+ RecordType.DeveloperName = &quot;MPOrderExitClause&quot;</errorConditionFormula>
+    <errorMessage>No puedes modificar este registro (VREXC_006)</errorMessage>
+</ValidationRule>

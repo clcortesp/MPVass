@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRUS_002_GestorObligatorio</fullName>
+    <active>true</active>
+    <description>El campo Gestor debe ser obligatorio cuando se crea o modifica un usuario con rol comercial</description>
+    <errorConditionFormula>AND(  
+    ISBLANK(ManagerId),
+    CONTAINS(UserRole.DeveloperName,&quot;Comercial&quot;)  
+   )</errorConditionFormula>
+    <errorDisplayField>ManagerId</errorDisplayField>
+    <errorMessage>El campo &apos;Manager&apos; es obligatorio para los usuarios con roles comerciales.</errorMessage>
+</ValidationRule>

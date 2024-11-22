@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPFlexibleClauses3__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Cláusula flexible 3 (Posición contractual)</inlineHelpText>
+    <label>Cláusula Flex. 3: Posición Contr.</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>MPFlexibleClauses3</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPDebtClassification__c</fullName>
+    <description>Clasificación de la deuda de la cuenta relacionada a la oportunidad, al momento de entrar en el proceso Aprobación de riesgo cuenta relacionada.</description>
+    <externalId>false</externalId>
+    <label>Clasificación de deuda</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A</fullName>
+                <default>false</default>
+                <label>A</label>
+            </value>
+            <value>
+                <fullName>B</fullName>
+                <default>false</default>
+                <label>B</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

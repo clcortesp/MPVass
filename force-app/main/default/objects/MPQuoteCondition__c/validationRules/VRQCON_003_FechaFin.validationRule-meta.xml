@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRQCON_003_FechaFin</fullName>
+    <active>true</active>
+    <description>Impide que la Fecha Fin sea mayor a la Fecha Fin de Contrato de la oportunidad relacionada a la Oportunidad.</description>
+    <errorConditionFormula>MPEndDate__c   &gt;  MPQuote__r.Opportunity.MPContractEndDate__c</errorConditionFormula>
+    <errorDisplayField>MPEndDate__c</errorDisplayField>
+    <errorMessage>La Fecha Fin no puede ser mayor a la Fecha Fin del Contrato. (VRQCON_003)</errorMessage>
+</ValidationRule>

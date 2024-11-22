@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_020_MPGetContractError</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL( PRIORVALUE(StageName )  , &apos;Exploración&apos;) &amp;&amp;
+ ISPICKVAL(StageName , &apos;Cotización&apos;) &amp;&amp;
+ !ISPICKVAL(MPGetContract41API__r.MPStatus__c, &apos;Success&apos;)&amp;&amp;
+RecordType.DeveloperName = &apos;MPRenovation&apos;</errorConditionFormula>
+    <errorMessage>La integración de consulta de contrato fallo, no es posible avanzar la oportunidad (VROPP_020)</errorMessage>
+</ValidationRule>

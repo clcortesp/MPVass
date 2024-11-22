@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPFootageEntryProjections__c</fullName>
+    <description>Metraje del local asociado a la oportunidad más avanzada utilizado en las proyecciones financieras de entrada de la orden de término de contrato.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Metraje del local de la oportunidad más avanzada al momento de calcular las proyecciones financieras de entrada.</inlineHelpText>
+    <label>Metraje</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

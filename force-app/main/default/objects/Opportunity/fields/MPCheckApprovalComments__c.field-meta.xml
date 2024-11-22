@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPCheckApprovalComments__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Bandera que se usa para validar que al rechazar una solicitud de aprobacion, comentarios deben ser agregados para finalizar el rechazo</description>
+    <externalId>false</externalId>
+    <label>Validar comentarios de rechazo</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

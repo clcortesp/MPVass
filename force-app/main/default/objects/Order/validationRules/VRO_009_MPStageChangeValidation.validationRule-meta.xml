@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_009_MPStageChangeValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    ISCHANGED(MPStage__c ),
+    RecordType.DeveloperName = &apos;MPTermination&apos;,
+    NOT(
+        OR(
+           $Profile.Name = &apos;System Administrator&apos;,
+           $Profile.Name = &apos;Administrador del sistema&apos;,
+           $UserRole.DeveloperName = &apos;Jefe_Area_Legal&apos;,
+           $Profile.Name = &apos;Minimum Access - API Only Integrations&apos;
+         )),
+    NOT(OR( 
+         AND(
+             TEXT(PRIORVALUE( MPStage__c )) = &apos;Activación de Término&apos;,
+             ISPICKVAL( MPStage__c  , &apos;Proceso Judicial&apos; )
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Activación de Término&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Cerrado Perdido&apos; )
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Activación de Término&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Negociación&apos; ),
+             ISPICKVAL(MPFTCPrincipal__r.MPContractTermAmountsAPIStatus__r.MPStatus__c , &quot;Success&quot;)
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Negociación&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Proceso Judicial&apos; )
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Negociación&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Cerrado Perdido&apos; )
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Negociación&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Condición de Pago&apos; ),
+             ISPICKVAL( MPFTCPrincipal__r.MPStatus__c , &apos;Socialized&apos;) 
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Condición de Pago&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Proceso Judicial&apos; )
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Condición de Pago&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Cerrado Perdido&apos; )
+             ),
+         AND(
+             ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Proceso Judicial&apos;),
+             ISPICKVAL( MPStage__c  , &apos;Cerrado Perdido&apos; )
+             )
+        ))
+     )</errorConditionFormula>
+    <errorMessage>No tienes los permisos suficientes para actualizar la Orden de Termino. (VRO_009)</errorMessage>
+</ValidationRule>

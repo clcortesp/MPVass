@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>MPCategory__c</columns>
+    <columns>MPCategoryExternalCode__c</columns>
+    <columns>MPExternalCode__c</columns>
+    <columns>MPUsabilityStatus__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>MPBusinessType__c.MPSector</value>
+    </filters>
+    <label>All</label>
+</ListView>

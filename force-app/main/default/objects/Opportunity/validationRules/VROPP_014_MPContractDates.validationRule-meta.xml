@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_014_MPContractDates</fullName>
+    <active>true</active>
+    <description>En la sección Fechas de Contrato solo será posible modificar los campos:
+- Tipo de Plazo
+- Plazo de Contrato
+- Días libres de construcción</description>
+    <errorConditionFormula>AND(
+NOT(
+OR(
+$Profile.Name  =  &quot;System Administrator&quot;,
+$Profile.Name  =  &quot;Administrador del sistema&quot;
+)),
+ISPICKVAL(StageName , &quot;Exploración&quot;),
+RecordType.DeveloperName = &quot;MPRenovation&quot;,
+ISCHANGED(  MPContractStartDate__c )
+)</errorConditionFormula>
+    <errorMessage>Solo puede editar los campos tipo de plazo, plazo de contrato y/o días libres de construcción. (VROPP_014)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_018_MPAnnexRestriction</fullName>
+    <active>true</active>
+    <description>Regla de validación que impide modificar los campos que confirman anexos adjuntos cuando la oportunidad no se encuentra en etapa de &apos;Negociación&apos;.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &apos;MPEntry&apos;,
+RecordType.DeveloperName = &apos;MPRenovation&apos;
+),
+NOT(ISNEW()),
+OR(
+ISCHANGED(MPLandAndConstructionPlans__c),
+ISCHANGED(MPRentedAreaPlan__c),
+ISCHANGED(MPInternalRegulation__c),
+ISCHANGED(MPWarranty__c),
+ISCHANGED(MPLeasingGuidelines__c),
+ISCHANGED(MPCorporateComplianceStandards__c),
+ISCHANGED(MPSecurityRequirementsManual__c),
+ISCHANGED(MPWorkDescriptionByParty__c)
+),
+$Permission.MPCreateEditOpptyClauses,
+NOT(ISPICKVAL(StageName, &apos;Cotización&apos;))
+)</errorConditionFormula>
+    <errorMessage>Los campos de la sección &quot;Anexos&quot; pueden ser modificadas únicamente en etapa de Negociación. (VROPP_018)</errorMessage>
+</ValidationRule>

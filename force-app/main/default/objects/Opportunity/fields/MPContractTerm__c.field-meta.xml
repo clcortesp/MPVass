@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPContractTerm__c</fullName>
+    <externalId>false</externalId>
+    <formula>((YEAR(MPContractEndDate__c) - YEAR(MPContractStartDate__c))*12) + (MONTH(MPContractEndDate__c) - MONTH(MPContractStartDate__c))</formula>
+    <label>Duración del Contrato</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_007_MPMallOrBrandModification</fullName>
+    <active>true</active>
+    <description>Regla de validación que impide modificar tanto el Mall como la Marca asociados a las oportunidades.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &apos;MPEntry&apos;,
+RecordType.DeveloperName = &apos;MPRenovation&apos;
+),
+NOT(ISNEW()),
+OR(
+ISCHANGED(MPMall__c), 
+ISCHANGED(MPBrand__c)
+),
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot;
+)
+)
+)</errorConditionFormula>
+    <errorMessage>No es posible modificar el Mall y la Marca asociados a esta oportunidad. (VROPP_007)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_017_MPOtherLossReason</fullName>
+    <active>true</active>
+    <description>Regla de validación que obliga a escribir el motivo de perdida cuando la selección fue el valor de &quot;Otra&quot;</description>
+    <errorConditionFormula>(TEXT( MPLossReason__c )) = &apos;Otra&apos;
+
+&amp;&amp;
+
+ISBLANK( MPLossReasonDetails__c )</errorConditionFormula>
+    <errorDisplayField>MPLossReasonDetails__c</errorDisplayField>
+    <errorMessage>Por favor selecciona los Detalles de Motivo de Pérdida (VROPP_017)</errorMessage>
+</ValidationRule>

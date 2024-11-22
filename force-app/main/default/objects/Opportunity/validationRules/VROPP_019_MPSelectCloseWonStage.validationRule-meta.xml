@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_019_MPSelectCloseWonStage</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+	OR(
+		RecordType.DeveloperName = &apos;MPEntry&apos;,
+		RecordType.DeveloperName = &apos;MPRenovation&apos;
+	),
+	NOT(ISNEW()),
+        OR(
+        NOT(MPWarrantyConstituted__c), 
+        ISBLANK(TEXT((MPSignatureStatus__c))), 
+        ISPICKVAL(MPSignatureStatus__c, &apos;Enviado&apos;) 
+        ), 
+	NOT(
+	OR(
+		$Profile.Name = &quot;System Administrator&quot;,
+		$Profile.Name = &quot;Administrador del sistema&quot;
+	)
+	),
+	ISPICKVAL(StageName, &quot;Cerrado Ganado&quot;),
+	ISCHANGED(StageName)
+)</errorConditionFormula>
+    <errorMessage>No es posible cambiar manualmente la etapa (VROPP_019)</errorMessage>
+</ValidationRule>

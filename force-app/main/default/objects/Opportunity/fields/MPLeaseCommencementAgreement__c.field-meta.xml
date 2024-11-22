@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPLeaseCommencementAgreement__c</fullName>
+    <externalId>false</externalId>
+    <label>Acuerdo de inicio de renta</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PEND</fullName>
+                <default>false</default>
+                <label>PEND</label>
+            </value>
+            <value>
+                <fullName>A partir de la fecha de entrega de local acordada para habilitación.</fullName>
+                <default>false</default>
+                <label>A partir de la fecha de entrega de local acordada para habilitación.</label>
+            </value>
+            <value>
+                <fullName>A partir de la apertura del Centro Comercial.</fullName>
+                <default>false</default>
+                <label>A partir de la apertura del Centro Comercial.</label>
+            </value>
+            <value>
+                <fullName>30 días después fecha acordada entrega de local para habilitación. (Pre Apertura)</fullName>
+                <default>false</default>
+                <label>30 días después fecha acordada entrega de local para habilitación. (Pre Apertura)</label>
+            </value>
+            <value>
+                <fullName>60 días después fecha acordada entrega de local para habilitación. (Pre Apertura)</fullName>
+                <default>false</default>
+                <label>60 días después fecha acordada entrega de local para habilitación. (Pre Apertura)</label>
+            </value>
+            <value>
+                <fullName>90 días después fecha acordada entrega de local para habilitación. (Pre Apertura)</fullName>
+                <default>false</default>
+                <label>90 días después fecha acordada entrega de local para habilitación. (Pre Apertura)</label>
+            </value>
+            <value>
+                <fullName>30 días después de la fecha acordada de entrega de local para habilitación.</fullName>
+                <default>false</default>
+                <label>30 días después de la fecha acordada de entrega de local para habilitación.</label>
+            </value>
+            <value>
+                <fullName>60 días después de la fecha acordada de entrega de local para habilitación.</fullName>
+                <default>false</default>
+                <label>60 días después de la fecha acordada de entrega de local para habilitación.</label>
+            </value>
+            <value>
+                <fullName>90 días después de la fecha acordada de entrega de local para habilitación.</fullName>
+                <default>false</default>
+                <label>90 días después de la fecha acordada de entrega de local para habilitación.</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

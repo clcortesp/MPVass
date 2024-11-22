@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPRetry__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Permitir o no re-intentos.</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Permitir o no re-intentos.</inlineHelpText>
+    <label>Habilitar reintentos</label>
+    <type>Checkbox</type>
+</CustomField>

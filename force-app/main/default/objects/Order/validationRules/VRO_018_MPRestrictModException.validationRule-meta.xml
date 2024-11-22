@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_018_MPRestrictModException</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT($Profile.Name = &quot;System Administrator&quot;),
+OR(
+NOT(ISPICKVAL(MPStage__c, &quot;Negociación&quot;)),
+ISPICKVAL(MPCommercialApproval__c, &quot;En Aprobación&quot;),
+ISPICKVAL(MPCommercialApproval__c, &quot;Aprobado&quot;),
+ISPICKVAL( MPExceptionApproval__c ,&quot;Aprobado&quot;)
+),
+
+ISCHANGED( MPExceptionApplies__c )
+
+)</errorConditionFormula>
+    <errorMessage>No se puede modificar &apos;Aplica Excepción&apos; (VRO_018)</errorMessage>
+</ValidationRule>

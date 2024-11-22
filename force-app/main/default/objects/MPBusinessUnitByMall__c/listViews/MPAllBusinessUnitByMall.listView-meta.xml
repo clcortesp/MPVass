@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPAllBusinessUnitByMall</fullName>
+    <columns>NAME</columns>
+    <columns>MPBusinessUnit__c</columns>
+    <columns>MPMall__c</columns>
+    <columns>MPG0__c</columns>
+    <columns>MPG3__c</columns>
+    <columns>MPUsabilityStatus__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Todas</label>
+</ListView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_001_MPTerminationOrderExitDateRange</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()), 
+RecordType.DeveloperName = &apos;MPTermination&apos;, 
+ISCHANGED(MPExitDate__c),
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot; 
+)
+), 
+OR(
+MPExitDate__c - TODAY() &lt;  $CustomMetadata.MPTerminationOrderExitDateRange__mdt.MPPeruExitDateRange.MPMinDaysRange__c,
+MPExitDate__c - TODAY() &gt; $CustomMetadata.MPTerminationOrderExitDateRange__mdt.MPPeruExitDateRange.MPMaxDaysRange__c
+)   
+)</errorConditionFormula>
+    <errorMessage>La fecha de salida ingresada está fuera del rango de días permitido de 15 a 45 días desde hoy. Por favor, ingrese una fecha válida. (VRO_001)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPSubTotalComercialDebt__c</fullName>
+    <externalId>false</externalId>
+    <label>Subtotal deuda comercial</label>
+    <summarizedField>MPTerminationRecord__c.MPItemValue__c</summarizedField>
+    <summaryFilterItems>
+        <field>MPTerminationRecord__c.MPCategory__c</field>
+        <operation>equals</operation>
+        <value>PorEmitir</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>MPTerminationRecord__c.MPSubcategory__c</field>
+        <operation>equals</operation>
+        <value>DEUDACOM</value>
+    </summaryFilterItems>
+    <summaryForeignKey>MPTerminationRecord__c.FTC__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPServiceDelivery</fullName>
+    <active>true</active>
+    <label>Prestación de servicio</label>
+    <picklistValues>
+        <picklist>MPClosedLostReason__c</picklist>
+        <values>
+            <fullName>El plazo acordado %28fecha de salida%29 ha llegado a su vencimiento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No hay aprobación comercial de la salida</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proceso judicial rechazado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial desea continuar con la relación comercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial y Mallplaza no llegaron a un acuerdo de salida</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPCommercialApproval__c</picklist>
+        <values>
+            <fullName>Aprobado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>En Aprobación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pendiente</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rechazado</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPDisablingStage__c</picklist>
+        <values>
+            <fullName>Armado de caja</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cierre y entrega</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nuevas acometidas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Preparación del local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restitución cierre y desconexión</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPDocumentedPaymentApproval__c</picklist>
+        <values>
+            <fullName>Aprobado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>En Aprobación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pendiente</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rechazado</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPExceptionApproval__c</picklist>
+        <values>
+            <fullName>Aprobado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>En Aprobación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pendiente</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rechazado</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPExceptionReason__c</picklist>
+        <values>
+            <fullName>Hay un Reemplazo que aporta al mix comercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hay un Reemplazo que aporta mayor rentabilidad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial con mal desempeño</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial que actualmente incumple sus compromisos de pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial que se ha convertido en un problema</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPExitReason__c</picklist>
+        <values>
+            <fullName>Aplicación bilateral de cláusula de salida</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aplicación de cláusula de salida a favor de Mallplaza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aplicación de cláusula de salida a favor de Socio comercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finalización de vínculo comercial por cumplimiento de contrato</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mallplaza desea de manera anticipada finalizar el vínculo comercial con el Socio comercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial desea salir de manera anticipada</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPFlexibleClauses1__c</picklist>
+        <values>
+            <fullName>EL CLIENTE pagará a MALLPLAZA doce %2812%29 Tarifas de Arriendo Mínimo durante el primer y segundo año calendario%2E A partir del tercer año%2C pagará trece %2813%29 Tarifas de Arriendo Mínimo%2C siendo que la Tarifa de Arriendo Mínimo correspondiente a cada mes de</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EL CLIENTE pagará a MALLPLAZA durante cada año calendario%2C doce %2812%29 Tarifas de Arriendo Mínimo%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EL CLIENTE pagará trece %2813%29 rentas durante cada año calendario%2C siendo que la Tarifa de Arriendo Mínimo correspondiente a cada mes de diciembre ascenderá siempre al doble de su valor%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MPFlexibleClauses1_C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No aplica%3A Según lo previsto en la cláusula especial del Contrato%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPFlexibleClauses2__c</picklist>
+        <values>
+            <fullName>Las Partes aclaran que el Local Comercial será entregado a EL CLIENTE en estado de obra gruesa %28casco grueso%29%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Partes aclaran que el Local Comercial será entregado a EL CLIENTE en estado habilitado%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Las Partes aclaran que el Local Comercial será entregado a EL CLIENTE en estado semi habilitado%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPFlexibleClauses3__c</picklist>
+        <values>
+            <fullName>EL CLIENTE no podrá subarrendar%2C ceder el uso%2C ni ceder el Contrato ni los derechos y%2Fu obligaciones que de él emanen%2C sin previa autorización de MALLPLAZA%2C dada en forma expresa y por escrito%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EL CLIENTE podrá ceder su posición contractual%2C derechos y%2Fu obligaciones en favor de una sociedad perteneciente a su grupo económico%2C según las disposiciones aprobadas por la %28SBS%29%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No aplica%3A Según lo previsto en la cláusula especial del Contrato%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPLegalProcessApproval__c</picklist>
+        <values>
+            <fullName>Aprobado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>En Aprobación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pendiente</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rechazado</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPLegalProcessStatus__c</picklist>
+        <values>
+            <fullName>Bienes retirados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proceso judicial iniciado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restitución finalizada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restitución iniciada</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPOtherContractObligations__c</picklist>
+        <values>
+            <fullName>Según la proporción que le corresponde en relación a la superficie cedida en uso%2C respecto del total de las obligaciones%2C más el 5%25 por concepto de administración</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Según lo previsto en la cláusula especial del Contrato</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPPaymentMethod__c</picklist>
+        <values>
+            <fullName>Documentada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transferencia_con_garantías</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transferencia_sin_garantías</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPRejectionReason__c</picklist>
+        <values>
+            <fullName>RejectedByExceptionAndOrSpecialCondition</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPSignatureStatus__c</picklist>
+        <values>
+            <fullName>Firmada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pendiente</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPSpecialConditionInFavorOf__c</picklist>
+        <values>
+            <fullName>Mallplaza</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Socio comercial</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPStage__c</picklist>
+        <values>
+            <fullName>Activación de Término</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cerrado Ganado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cerrado Perdido</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condición de Pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deshabilitación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negociación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proceso Judicial</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPWarrantyUse__c</picklist>
+        <values>
+            <fullName>Aplicar Garantías</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Devolución de Garantías</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Activated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

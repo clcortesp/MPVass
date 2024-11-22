@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPDICOM__c</fullName>
+    <externalId>false</externalId>
+    <label>DICOM</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Muy_Bueno</fullName>
+                <default>false</default>
+                <label>Muy Bueno</label>
+            </value>
+            <value>
+                <fullName>Bueno</fullName>
+                <default>false</default>
+                <label>Bueno</label>
+            </value>
+            <value>
+                <fullName>Normal</fullName>
+                <default>false</default>
+                <label>Normal</label>
+            </value>
+            <value>
+                <fullName>Malo</fullName>
+                <default>false</default>
+                <label>Malo</label>
+            </value>
+            <value>
+                <fullName>Muy_malo</fullName>
+                <default>false</default>
+                <label>Muy malo</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPSector__c</fullName>
+    <externalId>false</externalId>
+    <label>Rubro</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>MPBusinessType__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Rubro</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>MPBusinessType__c</referenceTo>
+    <relationshipLabel>Unidades de Negocio</relationshipLabel>
+    <relationshipName>SectorsByBusinessUnit</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

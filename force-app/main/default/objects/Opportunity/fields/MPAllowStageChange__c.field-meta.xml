@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPAllowStageChange__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flag creado para que se pueda actualizar el estado de la oportunidad a &apos;Preparacion de contrato&apos; mediante el flujo MP_Change_Opp_Stage</description>
+    <externalId>false</externalId>
+    <label>MP Allow Stage Change</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

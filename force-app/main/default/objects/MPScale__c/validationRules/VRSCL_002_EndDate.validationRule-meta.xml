@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRSCL_002_EndDate</fullName>
+    <active>true</active>
+    <description>La Fecha Fin de la escala no puede ser mayor a la Fecha Fin del Contrato (Opp)</description>
+    <errorConditionFormula>MPEndDate__c  &gt;  MPQuoteCondition__r.MPQuote__r.Opportunity.MPContractEndDate__c</errorConditionFormula>
+    <errorDisplayField>MPEndDate__c</errorDisplayField>
+    <errorMessage>La Fecha Fin no puede ser mayor a la Fecha Fin del Contrato.(VRSCL_002)</errorMessage>
+</ValidationRule>

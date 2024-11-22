@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_021_MPSignatureStage</fullName>
+    <active>true</active>
+    <description>Validación que detiene el cambio de etapa de oportunidad cuando se encuentra en la etapa de Firma</description>
+    <errorConditionFormula>AND(
+ISCHANGED(StageName),
+ISPICKVAL(PRIORVALUE(StageName), &quot;Firma&quot;),
+NOT(ISPICKVAL(StageName, &quot;Cerrado Ganado&quot;)), 
+NOT(ISPICKVAL(StageName, &quot;Cerrada Perdida&quot;)),
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot;
+)
+)
+)</errorConditionFormula>
+    <errorMessage>No puedes cambiar la etapa de la Oportunidad. (VROPP_021)</errorMessage>
+</ValidationRule>

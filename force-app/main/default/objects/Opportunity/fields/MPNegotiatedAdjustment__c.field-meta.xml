@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPNegotiatedAdjustment__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Se marca en true si cambia un ajuste negociado en las condiciones de presupuesto relacionadas al presupuesto sincronizado y si ese valor es diferente al Ajuste Sugerido.</description>
+    <externalId>false</externalId>
+    <label>Ajuste Negociado</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

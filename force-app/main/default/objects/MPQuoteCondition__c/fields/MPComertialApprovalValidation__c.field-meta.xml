@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPComertialApprovalValidation__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  (
+    MPNegotiatedAdjustment__c &lt;&gt;  MPSuggestedAdjustment__c || 
+    (
+      MPNegotiatedValue__c &lt;&gt;  MPSuggestedValue__c &amp;&amp;
+      !BEGINS(MPConditionClass__r.MPExternalCode__c , &quot;AM&quot;)
+    )||
+    (
+      MPValues__c &gt;= 0.2
+    )
+  ),
+  &apos;Gerente Comercial&apos;,
+  IF(
+    (
+      MPValues__c &gt;= 0.1 &amp;&amp;
+      MPValues__c &lt; 0.2
+    ),
+    &apos;Subgerente Comercial&apos;,
+    &apos;&apos;
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ComertialApprovalValidation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

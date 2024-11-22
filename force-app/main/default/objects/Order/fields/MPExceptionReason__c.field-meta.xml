@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPExceptionReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo de Excepción</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Socio comercial con mal desempeño</fullName>
+                <default>false</default>
+                <label>Socio comercial con mal desempeño</label>
+            </value>
+            <value>
+                <fullName>Socio comercial que actualmente incumple sus compromisos de pago</fullName>
+                <default>false</default>
+                <label>Socio comercial que actualmente incumple sus compromisos de pago</label>
+            </value>
+            <value>
+                <fullName>Socio comercial que se ha convertido en un problema</fullName>
+                <default>false</default>
+                <label>Socio comercial que se ha convertido en un problema</label>
+            </value>
+            <value>
+                <fullName>Hay un Reemplazo que aporta al mix comercial</fullName>
+                <default>false</default>
+                <label>Hay un Reemplazo que aporta al mix comercial</label>
+            </value>
+            <value>
+                <fullName>Hay un Reemplazo que aporta mayor rentabilidad</fullName>
+                <default>false</default>
+                <label>Hay un Reemplazo que aporta mayor rentabilidad</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

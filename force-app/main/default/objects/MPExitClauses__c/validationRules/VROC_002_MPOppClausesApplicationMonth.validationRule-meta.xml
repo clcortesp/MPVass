@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROC_002_MPOppClausesApplicationMonth</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISBLANK( TEXT(MPTypeOfClause__c ))) &amp;&amp;
+ISBLANK( TEXT(MPApplicationMonth__c ))</errorConditionFormula>
+    <errorDisplayField>MPApplicationMonth__c</errorDisplayField>
+    <errorMessage>Por favor selecciona el Mes de aplicación. (VROC_002)</errorMessage>
+</ValidationRule>

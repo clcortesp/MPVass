@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPIntegrationStatus__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Campo Lookup hacia el registro en el objeto MPIntegrationStatus__c el cual muestra un Log de las integraciones</description>
+    <externalId>false</externalId>
+    <label>Detalle de la integración</label>
+    <referenceTo>MPIntegrationStatus__c</referenceTo>
+    <relationshipLabel>Condiciones de Presupuesto</relationshipLabel>
+    <relationshipName>MPQuoteCondition</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

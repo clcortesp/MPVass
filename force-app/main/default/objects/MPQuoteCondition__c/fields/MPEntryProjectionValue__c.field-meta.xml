@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPEntryProjectionValue__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(
+MPConditionClassCode__c = &apos;AM15&apos;,
+MPConditionClassCode__c = &apos;AM90&apos;
+), 
+IF(
+NOT(ISNULL(MPWeightedValue__c)), 
+MPWeightedValue__c,
+MPNegotiatedValue__c
+), 
+null
+)</formula>
+    <label>Valor Proyeccion Entrada</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

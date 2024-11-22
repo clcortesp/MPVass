@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPLegalProcessStatus__c</fullName>
+    <externalId>false</externalId>
+    <label>Estado Proceso Judicial</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Proceso judicial iniciado</fullName>
+                <default>false</default>
+                <label>Proceso judicial iniciado</label>
+            </value>
+            <value>
+                <fullName>Restitución iniciada</fullName>
+                <default>false</default>
+                <label>Restitución iniciada</label>
+            </value>
+            <value>
+                <fullName>Restitución finalizada</fullName>
+                <default>false</default>
+                <label>Restitución finalizada</label>
+            </value>
+            <value>
+                <fullName>Bienes retirados</fullName>
+                <default>false</default>
+                <label>Bienes retirados</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

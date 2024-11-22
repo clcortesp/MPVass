@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_016_MPLossReason</fullName>
+    <active>true</active>
+    <description>Regla de validación que impide perder la Oportunidad si no se ha ingresado un motivo de pérdida</description>
+    <errorConditionFormula>IsClosed = TRUE
+		&amp;&amp; 
+	IsWon = FALSE
+	&amp;&amp; 
+	ISBLANK(TEXT( MPLossReason__c ))</errorConditionFormula>
+    <errorDisplayField>MPLossReason__c</errorDisplayField>
+    <errorMessage>Por favor selecciona el Motivo de Pérdida (VROPP_016)</errorMessage>
+</ValidationRule>

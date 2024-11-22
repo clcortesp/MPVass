@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPStrategicAdjustments</fullName>
+    <columns>NAME</columns>
+    <columns>MPPeriod__c</columns>
+    <columns>MPValue__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>MPAdjustment__c.MPStrategicAdjustment</value>
+    </filters>
+    <label>Ajustes Estratégicos</label>
+</ListView>

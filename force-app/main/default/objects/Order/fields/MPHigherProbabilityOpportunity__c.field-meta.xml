@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPHigherProbabilityOpportunity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Oportunidad más avanzada utilizada en las proyecciones financieras de entrada.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Oportunidad más avanzada al momento de calcular las proyecciones financieras de entrada.</inlineHelpText>
+    <label>Oportunidad</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Órdenes de Término</relationshipLabel>
+    <relationshipName>TerminationOrders</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPStage__c</fullName>
+    <externalId>false</externalId>
+    <label>Etapa</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Activación de Término</fullName>
+                <default>false</default>
+                <label>Activación de Término</label>
+            </value>
+            <value>
+                <fullName>Negociación</fullName>
+                <default>false</default>
+                <label>Negociación</label>
+            </value>
+            <value>
+                <fullName>Condición de Pago</fullName>
+                <default>false</default>
+                <label>Condición de Pago</label>
+            </value>
+            <value>
+                <fullName>Deshabilitación</fullName>
+                <default>false</default>
+                <label>Deshabilitación</label>
+            </value>
+            <value>
+                <fullName>Proceso Judicial</fullName>
+                <default>false</default>
+                <label>Proceso Judicial</label>
+            </value>
+            <value>
+                <fullName>Cerrado Ganado</fullName>
+                <default>false</default>
+                <label>Cerrado Ganado</label>
+            </value>
+            <value>
+                <fullName>Cerrado Perdido</fullName>
+                <default>false</default>
+                <label>Cerrado Perdido</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

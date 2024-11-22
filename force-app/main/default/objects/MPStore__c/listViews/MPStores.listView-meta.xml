@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPStores</fullName>
+    <columns>NAME</columns>
+    <columns>MPSociety__c</columns>
+    <columns>MPMall__c</columns>
+    <columns>MPContractType__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>MPStore__c.MPStore</value>
+    </filters>
+    <label>Locales</label>
+</ListView>

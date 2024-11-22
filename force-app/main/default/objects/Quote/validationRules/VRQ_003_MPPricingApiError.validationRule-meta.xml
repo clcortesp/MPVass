@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRQ_003_MPPricingApiError</fullName>
+    <active>false</active>
+    <description>Si una condición de presupuesto requiere el valor sugerido desde la API de precios y esta integracion falla; No se debe permitir modificar la Cotización asociada.</description>
+    <errorConditionFormula>AND(
+  OR(
+     Opportunity.RecordType.DeveloperName = &apos;MPEntry&apos;,
+     Opportunity.RecordType.DeveloperName = &apos;MPRenovation&apos;
+  ),
+  NOT(ISNEW()),
+
+  AND(
+    ISPICKVAL(PRIORVALUE(MPPricingApiStatus__c), &apos;Error&apos;), 
+    ISCHANGED(MPPricingApiStatus__c) = FALSE
+  )
+)</errorConditionFormula>
+    <errorMessage>No se puede modificar la cotizacion si hubo un error al obtener el valor sugerido de una condición de contrato. VRQ_003</errorMessage>
+</ValidationRule>

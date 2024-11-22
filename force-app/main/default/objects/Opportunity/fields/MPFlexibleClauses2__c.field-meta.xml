@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPFlexibleClauses2__c</fullName>
+    <externalId>false</externalId>
+    <label>Cláusula Flex. 2: Estado del Local</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>MPFlexibleClauses2</valueSetName>
+    </valueSet>
+</CustomField>

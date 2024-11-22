@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRCONTR_001_LockRecord_Integration4_Fail</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				ISPICKVAL(MPStatus__c, &apos;Borrador&apos;),
+				NOT(ISNEW()),
+				MPContractCreation40Status__c != NULL,
+				ISPICKVAL(MPContractCreation40Status__r.MPStatus__c, &apos;Error&apos;),
+				NOT (ISCHANGED(MPContractCreation40Status__c)),  
+				NOT(
+								OR(
+												$Profile.Name = &quot;System Administrator&quot;,
+												$Profile.Name = &quot;Administrador del sistema&quot;
+								)
+				)
+)</errorConditionFormula>
+    <errorMessage>No se puede modificar el contrato si la integración 4.0 falló. Por favor, consulte a su administrador (VRCONTR_001).</errorMessage>
+</ValidationRule>

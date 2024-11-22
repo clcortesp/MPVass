@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPApplicationMonthInWords__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(MPApplicationMonth__c),
+  &apos;1&apos;, &apos;Uno&apos;,
+  &apos;2&apos;, &apos;Dos&apos;,
+  &apos;3&apos;, &apos;Tres&apos;,
+  &apos;4&apos;, &apos;Cuatro&apos;,
+  &apos;5&apos;, &apos;Cinco&apos;,
+  &apos;6&apos;, &apos;Seis&apos;,
+  &apos;7&apos;, &apos;Siete&apos;,
+  &apos;8&apos;, &apos;Ocho&apos;,
+  &apos;9&apos;, &apos;Nueve&apos;,
+  &apos;10&apos;, &apos;Diez&apos;,
+  &apos;11&apos;, &apos;Once&apos;,
+  &apos;12&apos;, &apos;Doce&apos;,
+  &apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Mes de aplicación en palabras</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

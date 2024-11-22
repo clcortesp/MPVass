@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPPenaltyCountInWords__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(MPPenaltiesCount__c,
+  0, &apos;Cero&apos;, 1, &apos;Uno&apos;, 2, &apos;Dos&apos;, 3, &apos;Tres&apos;, 4, &apos;Cuatro&apos;,
+  5, &apos;Cinco&apos;, 6, &apos;Seis&apos;, 7, &apos;Siete&apos;, 8, &apos;Ocho&apos;, 9, &apos;Nueve&apos;,
+  10, &apos;Diez&apos;, 11, &apos;Once&apos;, 12, &apos;Doce&apos;, 13, &apos;Trece&apos;, 14, &apos;Catorce&apos;,
+  15, &apos;Quince&apos;, 16, &apos;Dieciséis&apos;, 17, &apos;Diecisiete&apos;, 18, &apos;Dieciocho&apos;, 19, &apos;Diecinueve&apos;,
+  20, &apos;Veinte&apos;, 21, &apos;Veintiuno&apos;, 22, &apos;Veintidós&apos;, 23, &apos;Veintitrés&apos;, 24, &apos;Veinticuatro&apos;,
+  25, &apos;Veinticinco&apos;, 26, &apos;Veintiséis&apos;, 27, &apos;Veintisiete&apos;, 28, &apos;Veintiocho&apos;, 29, &apos;Veintinueve&apos;,
+  30, &apos;Treinta&apos;, 31, &apos;Treinta y uno&apos;, 32, &apos;Treinta y dos&apos;, 33, &apos;Treinta y tres&apos;, 34, &apos;Treinta y cuatro&apos;,
+  35, &apos;Treinta y cinco&apos;, 36, &apos;Treinta y seis&apos;, 37, &apos;Treinta y siete&apos;, 38, &apos;Treinta y ocho&apos;, 39, &apos;Treinta y nueve&apos;,
+  40, &apos;Cuarenta&apos;, 41, &apos;Cuarenta y uno&apos;, 42, &apos;Cuarenta y dos&apos;, 43, &apos;Cuarenta y tres&apos;, 44, &apos;Cuarenta y cuatro&apos;,
+  45, &apos;Cuarenta y cinco&apos;, 46, &apos;Cuarenta y seis&apos;, 47, &apos;Cuarenta y siete&apos;, 48, &apos;Cuarenta y ocho&apos;, 49, &apos;Cuarenta y nueve&apos;,
+  50, &apos;Cincuenta&apos;, 51, &apos;Cincuenta y uno&apos;, 52, &apos;Cincuenta y dos&apos;, 53, &apos;Cincuenta y tres&apos;, 54, &apos;Cincuenta y cuatro&apos;,
+  55, &apos;Cincuenta y cinco&apos;, 56, &apos;Cincuenta y seis&apos;, 57, &apos;Cincuenta y siete&apos;, 58, &apos;Cincuenta y ocho&apos;, 59, &apos;Cincuenta y nueve&apos;,
+  60, &apos;Sesenta&apos;, 61, &apos;Sesenta y uno&apos;, 62, &apos;Sesenta y dos&apos;, 63, &apos;Sesenta y tres&apos;, 64, &apos;Sesenta y cuatro&apos;,
+  65, &apos;Sesenta y cinco&apos;, 66, &apos;Sesenta y seis&apos;, 67, &apos;Sesenta y siete&apos;, 68, &apos;Sesenta y ocho&apos;, 69, &apos;Sesenta y nueve&apos;,
+  70, &apos;Setenta&apos;, 71, &apos;Setenta y uno&apos;, 72, &apos;Setenta y dos&apos;, 73, &apos;Setenta y tres&apos;, 74, &apos;Setenta y cuatro&apos;,
+  75, &apos;Setenta y cinco&apos;, 76, &apos;Setenta y seis&apos;, 77, &apos;Setenta y siete&apos;, 78, &apos;Setenta y ocho&apos;, 79, &apos;Setenta y nueve&apos;,
+  80, &apos;Ochenta&apos;, 81, &apos;Ochenta y uno&apos;, 82, &apos;Ochenta y dos&apos;, 83, &apos;Ochenta y tres&apos;, 84, &apos;Ochenta y cuatro&apos;,
+  85, &apos;Ochenta y cinco&apos;, 86, &apos;Ochenta y seis&apos;, 87, &apos;Ochenta y siete&apos;, 88, &apos;Ochenta y ocho&apos;, 89, &apos;Ochenta y nueve&apos;,
+  90, &apos;Noventa&apos;, 91, &apos;Noventa y uno&apos;, 92, &apos;Noventa y dos&apos;, 93, &apos;Noventa y tres&apos;, 94, &apos;Noventa y cuatro&apos;,
+  95, &apos;Noventa y cinco&apos;, 96, &apos;Noventa y seis&apos;, 97, &apos;Noventa y siete&apos;, 98, &apos;Noventa y ocho&apos;, 99, &apos;Noventa y nueve&apos;,
+  &apos;&apos; 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Cantidad de penalidad en palabras</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

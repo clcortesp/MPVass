@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPContractStartDate__c</fullName>
+    <description>Oportunidad Nuevo Ingreso: Fecha en la que el contrato se firma
+Oportunidad Mod/Renov: Fecha de creación de la oportunidad Mod/Renov</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Fecha en la que el contrato se firma</inlineHelpText>
+    <label>Fecha de inicio del contrato</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

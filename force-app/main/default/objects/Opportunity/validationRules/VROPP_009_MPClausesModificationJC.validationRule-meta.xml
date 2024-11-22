@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_009_MPClausesModificationJC</fullName>
+    <active>true</active>
+    <description>Regla de validación que impide al jefe comercial modificar las cláusulas cuando la oportunidad no se encuentra en etapa de &apos;Negociación&apos;.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &apos;MPEntry&apos;,
+RecordType.DeveloperName = &apos;MPRenovation&apos;
+),
+NOT(ISNEW()),
+OR(
+ISCHANGED(MPSpecialClauses1__c),
+ISCHANGED(MPSpecialClauses2__c),
+ISCHANGED(MPSpecialClauses3__c),
+ISCHANGED(MPSpecialClauses4__c),
+ISCHANGED(MPFlexibleClauses1__c),
+ISCHANGED(MPFlexibleClauses2__c),
+ISCHANGED(MPFlexibleClauses3__c)		
+),
+$Permission.MPCreateEditOpptyClauses,
+NOT(ISPICKVAL(StageName, &apos;Cotización&apos;))
+)</errorConditionFormula>
+    <errorMessage>Las cláusulas pueden ser modificadas únicamente en etapa de Negociación. (VROPP_009)</errorMessage>
+</ValidationRule>

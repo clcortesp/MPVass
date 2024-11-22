@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExitDatetime__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  ISPICKVAL($User.TimeZoneSidKey , &quot;America/Punta_Arenas&quot;),
+DATETIMEVALUE(MPExitDate__c)  + (11/24),DATETIMEVALUE(MPExitDate__c)  + (13/24))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Fecha y hora de Salida</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

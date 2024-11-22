@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPAmountOfTimeEntryProjections__c</fullName>
+    <description>Cantidad de tiempo utilizada en las proyecciones financieras de entrada de la orden de término de contrato.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Duración proyectada del posible contrato en relación a una oportunidad en progreso</inlineHelpText>
+    <label>Cantidad en tiempo</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

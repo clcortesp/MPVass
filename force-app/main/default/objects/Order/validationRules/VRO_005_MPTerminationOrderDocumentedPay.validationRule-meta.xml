@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_005_MPTerminationOrderDocumentedPay</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+RecordType.DeveloperName = &apos;MPTermination&apos;,
+ISPICKVAL(	MPPaymentMethod__c, &apos;Documentada&apos;) ,
+OR(
+ISBLANK( MPNumberOfInstalments__c ),
+ISBLANK(MPPaymentComments__c), 
+ISBLANK(TEXT(MPWarrantyUse__c)) 
+				)
+)</errorConditionFormula>
+    <errorMessage>Por favor ingrese el número de pagarés, el uso de garantía y los comentarios correspondientes. (VRO_005)</errorMessage>
+</ValidationRule>

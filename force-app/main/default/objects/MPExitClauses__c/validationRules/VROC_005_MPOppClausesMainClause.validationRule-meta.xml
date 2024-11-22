@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROC_005_MPOppClausesMainClause</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+
+  AND(!ISBLANK( TEXT(MPTypeOfClause__c )), !ISBLANK(MPSpecialExitClause__c)),
+
+  AND(ISBLANK(TEXT(MPTypeOfClause__c)), ISBLANK(MPSpecialExitClause__c))
+
+)</errorConditionFormula>
+    <errorMessage>Por favor seleccione un &quot;Tipo de Clausula&quot; o ingrese una &quot;Clausula salida especial&quot;. (VROC_005)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_016_LegalProcessReason</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(MPStage__c) &amp;&amp;
+ISPICKVAL(MPStage__c, &apos;Proceso Judicial&apos;) &amp;&amp;
+(
+ ISNULL(MPLegalProcessReason__c) ||
+ ISBLANK(MPLegalProcessReason__c) 
+)&amp;&amp;
+NOT(
+OR(
+$Profile.Name = &apos;System Administrator&apos;,
+$Profile.Name = &apos;Administrador del sistema&apos;,
+$UserRole.DeveloperName = &apos;Jefe_Area_Legal&apos;
+))</errorConditionFormula>
+    <errorMessage>Es obligatorio indicar los motivos del proceso judicial para poder hacer el cambio de la etapa. (VRO_016)</errorMessage>
+</ValidationRule>

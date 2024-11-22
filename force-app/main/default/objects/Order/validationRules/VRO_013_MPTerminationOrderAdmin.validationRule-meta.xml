@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_013_MPTerminationOrderAdmin</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    ISCHANGED(MPStage__c ),
+    RecordType.DeveloperName = &apos;MPTermination&apos;,
+    OR(
+       $Profile.Name = &apos;System Administrator&apos;,
+       $Profile.Name = &apos;Administrador del sistema&apos;
+       ),
+    OR(AND(
+        OR(
+           TEXT(PRIORVALUE( MPStage__c )) = &apos;Activación de Término&apos;,
+           ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Negociación&apos;),
+           ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Condición de Pago&apos;),
+           ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Cerrado Perdido&apos; )
+           ),
+           ISPICKVAL( MPStage__c , &apos;Cerrado Ganado&apos; )
+         ), 
+    AND(
+        ISPICKVAL( PRIORVALUE( MPStage__c ),&apos;Proceso Judicial&apos;),
+        ISPICKVAL( MPStage__c , &apos;Cerrado Ganado&apos; ),
+        NOT(ISPICKVAL( MPLegalProcessStatus__c , &apos;Bienes retirados&apos; )) 
+       ) 
+     )
+  )</errorConditionFormula>
+    <errorMessage>No tienes los permisos suficientes para actualizar la Orden de Termino a la Etapa Cerrado Ganado. (VRO_013)</errorMessage>
+</ValidationRule>

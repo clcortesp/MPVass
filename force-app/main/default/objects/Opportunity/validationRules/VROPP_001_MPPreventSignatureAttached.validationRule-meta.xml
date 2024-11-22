@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_001_MPPreventSignatureAttached</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ OR(
+    ISPICKVAL(StageName, &quot;Preparación de Contratos&quot;),
+    ISPICKVAL(StageName, &quot;Cerrado Ganado&quot;)
+   ),
+ OR(
+    RecordType.DeveloperName = &quot;MPEntry&quot;,
+    RecordType.DeveloperName = &quot;MPRenovation&quot;
+   ),
+ MPAttachedTechnicalSheet__c = FALSE,
+ NOT(
+   OR(
+      $Profile.Name = &quot;System Administrator&quot;,
+      $Profile.Name = &quot;Administrador del sistema&quot;
+     )
+  )
+)</errorConditionFormula>
+    <errorDisplayField>MPAttachedTechnicalSheet__c</errorDisplayField>
+    <errorMessage>La oportunidad no puede pasar a &quot;	Preparación de Contratos&quot; mientras no tenga Ficha Técnica adjunta</errorMessage>
+</ValidationRule>

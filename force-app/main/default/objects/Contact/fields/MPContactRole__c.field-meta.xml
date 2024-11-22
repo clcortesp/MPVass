@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPContactRole__c</fullName>
+    <externalId>false</externalId>
+    <label>Función de Contacto</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Codeudor</fullName>
+                <default>false</default>
+                <label>Codeudor</label>
+            </value>
+            <value>
+                <fullName>Contacto cobranza</fullName>
+                <default>false</default>
+                <label>Contacto cobranza</label>
+            </value>
+            <value>
+                <fullName>Contacto principal</fullName>
+                <default>false</default>
+                <label>Contacto principal</label>
+            </value>
+            <value>
+                <fullName>Encargado inmobiliario</fullName>
+                <default>false</default>
+                <label>Encargado inmobiliario</label>
+            </value>
+            <value>
+                <fullName>Representante legal 1</fullName>
+                <default>false</default>
+                <label>Representante legal 1</label>
+            </value>
+            <value>
+                <fullName>Representante legal 2</fullName>
+                <default>false</default>
+                <label>Representante legal 2</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

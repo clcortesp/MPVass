@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPPaymentMethod__c</fullName>
+    <externalId>false</externalId>
+    <label>Forma de Pago</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Documentada</fullName>
+                <default>false</default>
+                <label>Documentada</label>
+            </value>
+            <value>
+                <fullName>Transferencia_con_garantías</fullName>
+                <default>false</default>
+                <label>Transferencia con garantías</label>
+            </value>
+            <value>
+                <fullName>Transferencia_sin_garantías</fullName>
+                <default>false</default>
+                <label>Transferencia sin garantías</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Metadata personalizada que almacena la configuración por país de los rangos mínimos y máximos de días para determinar si la fecha de salida de una orden de terminación de contrato es válida.</description>
+    <label>Termination Order Exit Date Range</label>
+    <pluralLabel>Termination Order Exit Date Ranges</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPTentativeDepartureDate__c</fullName>
+    <description>Fecha en la que el SSCC desea realizar su salida</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Fecha de salida estimada por el SSCC</inlineHelpText>
+    <label>Fecha tentativa de salida</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

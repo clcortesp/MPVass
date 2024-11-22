@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_008_MPContractDatesModification</fullName>
+    <active>true</active>
+    <description>Regla de validación que impide modificar las fechas de contrato cuando la oportunidad no se encuentra en etapa de &apos;Reunión Exploratoria&apos;.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &apos;MPEntry&apos;,
+RecordType.DeveloperName = &apos;MPRenovation&apos;
+),
+NOT(ISNEW()), 
+OR(
+ISCHANGED(MPContractStartDate__c),
+ISCHANGED(MPTermType__c),
+ISCHANGED(MPContractPeriodYears__c),
+ISCHANGED(MPConstructionDaysOff__c)    
+), 
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot;
+)
+),
+OR(
+NOT($Permission.MPEditOpptyContractDates), 
+NOT(ISPICKVAL(StageName, &apos;Exploración&apos;))
+)
+)</errorConditionFormula>
+    <errorMessage>Las fechas de contrato pueden ser modificadas únicamente por el Jefe Comercial en etapa de Reunión Exploratoria. (VROPP_008)</errorMessage>
+</ValidationRule>

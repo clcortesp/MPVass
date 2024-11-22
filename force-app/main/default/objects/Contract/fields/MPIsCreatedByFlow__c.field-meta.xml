@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPIsCreatedByFlow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo creado para saber si un contrato fue creado por el el flujo Creaci_n_de_Contrato_y_Valido_Firma o fue creado mediante inserción masiva</description>
+    <externalId>false</externalId>
+    <label>Es Creado Por Flujo</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

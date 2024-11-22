@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_011_MPReturnExplorationStage</fullName>
+    <active>true</active>
+    <description>Regla de validación que impide regresar a la etapa de &apos;Reunión Exploratoria&apos; una vez que se progresa la Oportunidad.</description>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &apos;MPEntry&apos;,
+RecordType.DeveloperName = &apos;MPRenovation&apos;
+),
+NOT(ISNEW()),
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot;
+)
+),
+ISCHANGED(StageName),
+ISPICKVAL(StageName, &apos;Exploración&apos;)
+)</errorConditionFormula>
+    <errorMessage>No es posible regresar a la etapa de Reunión Exploratoria mientras la oportunidad está en progreso. (VROPP_011)</errorMessage>
+</ValidationRule>

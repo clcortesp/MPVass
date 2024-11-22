@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPRentalObject</fullName>
+    <active>true</active>
+    <label>Objeto de Alquiler</label>
+    <picklistValues>
+        <picklist>MPApprovalStatus__c</picklist>
+        <values>
+            <fullName>Aprobado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>En Aprobación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rechazado</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPStatusOccupation__c</picklist>
+        <values>
+            <fullName>Comprometido</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disponible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ocupado Vencido</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ocupado Vigente</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPStatus__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MPUsabilityStatus__c</picklist>
+        <values>
+            <fullName>Disuse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Use</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

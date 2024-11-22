@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPContractModificationStatus__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Detalles API Modificación de Contrato</label>
+    <referenceTo>MPIntegrationStatus__c</referenceTo>
+    <relationshipLabel>Contracts (Detalles API Modificación de Contrato)</relationshipLabel>
+    <relationshipName>Contracts_MPContractModificationStatus</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPPricingApiStatus__c</fullName>
+    <description>Estado de la integración de precios de un registro de Condiciones de presupuesto asociado el cual necesita el valor sugerido provendiente de una API de precios.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Estado de la integración de precios de un registro de Condiciones de presupuesto asociado el cual necesita el valor sugerido provendiente de una API de precios.</inlineHelpText>
+    <label>Estado API Precios</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>MPIntegrationStatusValues</valueSetName>
+    </valueSet>
+</CustomField>

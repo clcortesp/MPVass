@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPStatus__c</fullName>
+    <externalId>false</externalId>
+    <label>Estado</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Requested</fullName>
+                <default>false</default>
+                <label>Solicitada</label>
+            </value>
+            <value>
+                <fullName>Received</fullName>
+                <default>false</default>
+                <label>Recibida</label>
+            </value>
+            <value>
+                <fullName>Socialized</fullName>
+                <default>false</default>
+                <label>Socializada</label>
+            </value>
+            <value>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+                <label>Aceptada</label>
+            </value>
+            <value>
+                <fullName>RejectedByItems</fullName>
+                <default>false</default>
+                <label>Rechazada por Items</label>
+            </value>
+            <value>
+                <fullName>RejectedByExceptionAndOrSpecialConditionToApply</fullName>
+                <default>false</default>
+                <label>Rechazada por Excepción y/o Condición Especial por Aplicar</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

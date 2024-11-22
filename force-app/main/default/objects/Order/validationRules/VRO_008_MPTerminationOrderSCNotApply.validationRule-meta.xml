@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_008_MPTerminationOrderSCNotApply</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(MPStage__c ,&apos;Negociación&apos;),
+RecordType.DeveloperName = &apos;MPTermination&apos;,
+NOT(MPSpecialConditionToApply__c),
+OR(
+NOT(ISBLANK(MPSpecialConditionAmount__c)),
+NOT(ISBLANK(MPSpecialConditionReason__c)),
+NOT(ISBLANK(TEXT(MPSpecialConditionInFavorOf__c)))
+),
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot;
+)
+)
+)</errorConditionFormula>
+    <errorMessage>Debes quitar la información de la condición especial cuando no hay una condición especial por aplicar en la terminación de contrato. (VRO_008)</errorMessage>
+</ValidationRule>

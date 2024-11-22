@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_002_MPStageCreateOpp</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+ISNEW(),
+NOT(ISPICKVAL (StageName, &apos;Exploración&apos;)),
+RecordType.DeveloperName = &apos;MPEntry&apos;
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Al momento de crear una Oportunidad solo puede seleccionar el estado en exploración(VROPP_002)</errorMessage>
+</ValidationRule>

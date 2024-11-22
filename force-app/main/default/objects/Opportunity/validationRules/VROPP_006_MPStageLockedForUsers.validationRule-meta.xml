@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROPP_006_MPStageLockedForUsers</fullName>
+    <active>true</active>
+    <description>Restricción de cambios manuales en las etapas críticas del proceso de contrato.</description>
+    <errorConditionFormula>AND(
+    OR(
+        RecordType.DeveloperName = &apos;MPEntry&apos;,
+        RecordType.DeveloperName = &apos;MPRenovation&apos;
+    ),
+    NOT(ISNEW()),
+    MPAllowStageChange__c = False,
+    NOT(
+        OR(
+            $Profile.Name = &quot;System Administrator&quot;,
+            $Profile.Name = &quot;Administrador del sistema&quot;
+        )
+    ),
+    ISCHANGED(StageName),
+    ISPICKVAL( StageName , &quot;Preparación de Contratos&quot;),
+    OR(
+	ISPICKVAL(PRIORVALUE(StageName), &quot;Cotización&quot;),
+	ISPICKVAL(PRIORVALUE(StageName), &quot;Aprobación&quot;)
+    )
+)</errorConditionFormula>
+    <errorMessage>No se puede cambiar manualmente de la etapa &apos;Negociación&apos; o &apos;Aprobación&apos; a &apos;Preparación de Contratos&apos;.
+(VROPP_006)</errorMessage>
+</ValidationRule>

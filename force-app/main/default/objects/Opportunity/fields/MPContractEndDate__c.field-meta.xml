@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPContractEndDate__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>La fecha de fin del contrato se calcula según el tipo de registro de la oportunidad:
+Nuevo Ingreso: Se calcula sumando el plazo al inicio del contrato en meses o años, según el tipo de plazo.
+Modificación/Renovación: La fecha se obtiene directamente de la integración &quot;Obtener Contrato 4.1&quot; al momento de crear la oportunidad.</inlineHelpText>
+    <label>Fecha final del contrato</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

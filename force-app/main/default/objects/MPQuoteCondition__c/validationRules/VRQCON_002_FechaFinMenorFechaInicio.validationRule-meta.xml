@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRQCON_002_FechaFinMenorFechaInicio</fullName>
+    <active>true</active>
+    <description>Impide que la Fecha Fin sea menor a la Fecha Inicio</description>
+    <errorConditionFormula>MPEndDate__c  &lt;  MPStartDate__c</errorConditionFormula>
+    <errorDisplayField>MPEndDate__c</errorDisplayField>
+    <errorMessage>La Fecha Fin no puede ser inferior a la Fecha Inicio. (VRQCON_002)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPContractType__c</fullName>
+    <externalId>false</externalId>
+    <label>Tipo de Contrato</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arrendamiento</fullName>
+                <default>false</default>
+                <label>Arrendamiento</label>
+            </value>
+            <value>
+                <fullName>Subarrrendamiento</fullName>
+                <default>false</default>
+                <label>Subarrrendamiento</label>
+            </value>
+            <value>
+                <fullName>Usufructo</fullName>
+                <default>false</default>
+                <label>Usufructo</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

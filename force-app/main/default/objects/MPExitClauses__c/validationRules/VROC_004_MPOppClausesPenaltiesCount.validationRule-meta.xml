@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VROC_004_MPOppClausesPenaltiesCount</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT( MPTypeOfClause__c) = &quot;Bilateral con pago de penalidad&quot;
+
+&amp;&amp;
+
+ISNULL( MPPenaltiesCount__c )</errorConditionFormula>
+    <errorDisplayField>MPPenaltiesCount__c</errorDisplayField>
+    <errorMessage>Por favor selecciona la Cantidad de penalidades. (VROC_004)</errorMessage>
+</ValidationRule>

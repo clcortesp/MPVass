@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_014_MPRestrictModSpecCond</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT($Profile.Name = &quot;System Administrator&quot;),
+    OR(
+        NOT(ISPICKVAL(MPStage__c, &quot;Negociación&quot;)),
+        ISPICKVAL(MPCommercialApproval__c, &quot;En Aprobación&quot;),
+        ISPICKVAL(MPCommercialApproval__c, &quot;Aprobado&quot;)
+    ),
+    
+        ISCHANGED(MPSpecialConditionToApply__c)
+    
+)</errorConditionFormula>
+    <errorMessage>No se puede modificar &apos;Condición Especial por Aplicar&apos; (VRO_014)</errorMessage>
+</ValidationRule>

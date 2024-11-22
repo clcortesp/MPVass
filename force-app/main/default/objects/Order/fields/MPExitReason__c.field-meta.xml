@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPExitReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo de Salida</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Finalización de vínculo comercial por cumplimiento de contrato</fullName>
+                <default>false</default>
+                <label>Finalización de vínculo comercial por cumplimiento de contrato</label>
+            </value>
+            <value>
+                <fullName>Aplicación de cláusula de salida a favor de Socio comercial</fullName>
+                <default>false</default>
+                <label>Aplicación de cláusula de salida a favor de Socio comercial</label>
+            </value>
+            <value>
+                <fullName>Aplicación de cláusula de salida a favor de Mallplaza</fullName>
+                <default>false</default>
+                <label>Aplicación de cláusula de salida a favor de Mallplaza</label>
+            </value>
+            <value>
+                <fullName>Aplicación bilateral de cláusula de salida</fullName>
+                <default>false</default>
+                <label>Aplicación bilateral de cláusula de salida</label>
+            </value>
+            <value>
+                <fullName>Socio comercial desea salir de manera anticipada</fullName>
+                <default>false</default>
+                <label>Socio comercial desea salir de manera anticipada</label>
+            </value>
+            <value>
+                <fullName>Mallplaza desea de manera anticipada finalizar el vínculo comercial con el Socio comercial</fullName>
+                <default>false</default>
+                <label>Mallplaza desea de manera anticipada finalizar el vínculo comercial con el Socio comercial</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

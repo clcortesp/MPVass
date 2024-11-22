@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPRelatedOpportunitiyURL__c</fullName>
+    <description>Esta fórmula crea un enlace clickeable &quot;Ver Oportunidad&quot; que abre directamente el registro de la oportunidad relacionada en Salesforce. Combina la URL del servidor con el ID de la oportunidad para generar un acceso rápido y directo al registro completo desde cualquier ubicación donde aparezca este campo.</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(LEFT($Api.Partner_Server_URL_340, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_340))+OpportunityId, &quot;Ver Oportunidad relacionada.&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Este campo es usado en un Email Template llamado &quot;Solicitud de Fichas Técnicas&quot;.</inlineHelpText>
+    <label>URL Oportunidad relacionada</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPRiskClassification__c</fullName>
+    <externalId>false</externalId>
+    <label>Clasificación de riesgo</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Clasificación_A_3_meses</fullName>
+                <default>false</default>
+                <label>Clasificación A 3 meses</label>
+            </value>
+            <value>
+                <fullName>Clasificación_B__4_meses</fullName>
+                <default>false</default>
+                <label>Clasificación B  4 meses</label>
+            </value>
+            <value>
+                <fullName>Clasificación_C__5_meses</fullName>
+                <default>false</default>
+                <label>Clasificación C  5 meses</label>
+            </value>
+            <value>
+                <fullName>Empresas_Nuevas_6_meses</fullName>
+                <default>true</default>
+                <label>Empresas Nuevas 6 meses</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

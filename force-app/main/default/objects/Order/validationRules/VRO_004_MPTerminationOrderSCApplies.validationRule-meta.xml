@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_004_MPTerminationOrderSCApplies</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(MPStage__c ,&apos;Negociación&apos;),
+RecordType.DeveloperName = &apos;MPTermination&apos;,
+MPSpecialConditionToApply__c,
+OR(
+ISBLANK(MPSpecialConditionAmount__c),
+ISBLANK(MPSpecialConditionReason__c),
+ISBLANK(TEXT(MPSpecialConditionInFavorOf__c))
+),
+NOT(
+OR(
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;Administrador del sistema&quot;
+)
+)
+)</errorConditionFormula>
+    <errorMessage>Debes completar todos los campos de la condición especial cuando hay una condición especial por aplicar en la terminación de contrato. (VRO_004)</errorMessage>
+</ValidationRule>

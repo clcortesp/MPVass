@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRO_017_MPStageChangeAreaLegal</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    ISCHANGED(MPStage__c ),
+    NOT(
+        OR(
+           $Profile.Name = &apos;System Administrator&apos;,
+           $Profile.Name = &apos;Administrador del sistema&apos;
+           )),
+    RecordType.DeveloperName = &apos;MPTermination&apos;,
+    $UserRole.DeveloperName = &apos;Jefe_Area_Legal&apos;,
+    NOT( AND(
+    ISPICKVAL( PRIORVALUE( MPStage__c ), &apos;Proceso Judicial&apos;),
+    ISPICKVAL( MPStage__c , &apos;Cerrado Ganado&apos; ),
+    ISPICKVAL(  MPLegalProcessStatus__c , &apos;Bienes retirados&apos; )
+    )))</errorConditionFormula>
+    <errorMessage>No tienes los permisos suficientes para actualizar la Orden de Termino. (VRO_017)</errorMessage>
+</ValidationRule>

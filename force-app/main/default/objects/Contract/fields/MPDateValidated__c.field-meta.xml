@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MPDateValidated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indica que la fecha de salida real ingresada está confirmada por el SSCC y por el JC para proceder con los cálculos de la deuda del contrato.</description>
+    <externalId>false</externalId>
+    <label>Fecha validada</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
